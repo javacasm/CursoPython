@@ -1,11 +1,11 @@
 n=0
-while(n==0)
+while(n==0):
   print("Bienvenido!")
   nom=input("Introduce tu nombre: ")
   if(nom=="Admin"):
     intentos=0
     while(intentos<4):
-      passwd=input("Contraseña?")
+      passwd=input("Password?")
       if(passwd=="nimdA"):
         while(n==0):
           com=input("#$>: ")
@@ -15,8 +15,9 @@ while(n==0)
           elif (com=="end"):
             n=2
             print("Exit!")
+            break
       else:
         intentos=intentos+1
   else:
-    print("Hola "+nom)
-  
+    print("Hola "+str(nom))
+    n=3
