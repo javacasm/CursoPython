@@ -18,7 +18,7 @@
   * Comparación
   * Cuidado con los tipos 8888!="8888"
     * Representación interna de los valores
-1. Bucles while con condiciones
+1. Bucles while con condiciones [Consola v0](./codigo/consola_v0.py)
 1. Bucles Formato
 1. Rangos
 1. Funciones
