@@ -14,6 +14,7 @@ while(n==0):
             print("end\ttermina la consola")
           elif (com=="end"):
             n=2
+            intentos=7
             print("Exit!")
             break
       else:
