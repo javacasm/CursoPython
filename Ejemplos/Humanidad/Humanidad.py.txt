@@ -1,0 +1,84 @@
+
+import random
+import Trabajadorclass
+import Personaclass
+def round(num):. # creo que hace poca cosa
+    if(num-int(num) < 0.5):
+        return int(num)
+    else:
+        return int(num)
+population = {}
+num = 10
+for i in range(0, 10):
+    nombres = ["Angel", "Miguel", "Gabi", "Quique", "Enrique", "Manuel", "Lucia"] # mejor definir fuera de un bucle: Python es interpretado.…
+    apellidos = ["Donaire", "Arcas", "Sariot", "Manrique", "Estella", "Ortega", "Jimenez", "Galiano"]
+    one = nombres[random.randint(0, len(nombres)-1)] # nombres de las variables
+    two = apellidos[random.randint(0, len(apellidos)-1)]
+    three = apellidos[random.randint(0, len(apellidos)-1)]
+    M = Personaclass.Persona(one + " " + two + " " + three, random.randint(1500, 4500), random.randint(0, 3), 100)
+    M.setPagar(int(M.inmoney/200)) # sueldo?
+    population[M] = "Live" # yo no usaría un diccionario
+alives = population # creo que aquí está el error
+i = 0
+while(i < 120):
+    i += 1
+    print("Año: " + str(i))
+    for a in range(0, 12): # meses?
+        if(a == 11):
+            for M in population: # es un diccionario
+                if(population[M] != "Dead"):
+                    if(type(M) == type(9)): # no entiendo la comparación
+                        pop = population # para qué?
+                        del pop[M]
+                        pop[M] = "Dead"
+                        num -= 1 # mejor que contar usar size o length
+                        population = pop
+                    else:
+                        if(M.type == "Persona"):
+                            M.paga()
+                            n = M.dinero/400
+                            if(n < 25):
+                                M.gastos(25)
+                            else:
+                                M.gastos(n)
+                            M.setPagar(M.pagar*2) # que es esta magia?
+                            M.paga()
+                            M.setPagar(M.pagar/2)
+                            M = M.newYear()
+                        else:
+                            M.trabajar()
+                            n = M.dinero/400 # usas lo mismo que para personas
+                            if(n < 25):
+                                M.gastos(25)
+                            else:
+                                M.gastos(n)
+                            M = M.newYear()
+                            if(type(M) != type(8)):
+                                if(M.age % 10):
+                                    M.gastos(random.randint(250, 750))
+                if(type(M) != type(9)):
+                    M.dinero = round(M.dinero)
+                    M.CalcularClase()
+                    print(M.CompleteName + ":   Dinero: "+str(M.dinero)+",  Clase: "+M.clase+",  Edad: "+str(M.age)+".")
+        else:
+            for M in population:
+                if(population[M] != "Dead"):
+                    if(type(M) == type(9)):
+                        del population[M]
+                        population[M] = "Dead"
+                        num -= 1
+                    else:
+                        if(M.type == "Persona"):
+                            M.paga()
+                            n = M.dinero/400 # usas lo mismo que para personas
+                            if(n < 25):
+                                M.gastos(25)
+                            else:
+                                M.gastos(n)
+                        else:
+                            M.trabajar()
+                            n = M.dinero/400 # usas lo mismo que para personas
+                            if(n < 25):
+                                M.gastos(25)
+                            else:
+                                M.gastos(n)
