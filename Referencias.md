@@ -9,3 +9,5 @@
 [Libro Python para todos](http://mundogeek.net/tutorial-python/)
 
 [Intro a Python en 90 minutos](https://www.youtube.com/watch?v=CCz5umwMTTE)
+
+[Curso de python de Alfredo](http://www.educoteca.com/curso_python.html)
