@@ -11,3 +11,20 @@
 [Intro a Python en 90 minutos](https://www.youtube.com/watch?v=CCz5umwMTTE)
 
 [Curso de python de Alfredo](http://www.educoteca.com/curso_python.html)
+## Inglés
+
+[Python Tutorial for Beginners ](https://www.youtube.com/watch?time_continue=247&v=_uQrJ0TkZlc&feature=emb_logo)
+
+[Python Tutorial for Programmers - Python Crash Course](https://www.youtube.com/watch?v=f79MRyMsjrQ&feature=youtu.be)
+
+
+[Enorme colección de libros y cursos en python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers
+
+## Castellano
+
+[Aprende programando](https://www.aprendeprogramando.es/cursos-online/python)
+
+
+## Aprender con bloques
+
+[EduBlocks](app.edublocks.org)
