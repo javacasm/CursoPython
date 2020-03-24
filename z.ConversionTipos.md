@@ -1,0 +1,21 @@
+
+print("¿Cómo te llamas?")
+nombreUsuario = input()
+print("Hola ",nombreUsuario," ¿Cuántos años tienes? ")
+edad = int(input())
+
+|conversión|función
+|---|---
+|int()| a entero
+|float()| a decimal
+|str()|a cadena
+|bool()| a booleano
+
+
+Un truco para convertir un cadena  a boleano usando los operadores relacionades
+
+print("Estás contento con el curso (si/no)")
+contendo = input() == "si"
+
+
+la variable contento tendrá un valor booleano
