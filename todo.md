@@ -1,1 +1,2 @@
-¿cómo hacer para que se use una versión por defecto?
+* ¿cómo hacer para que se use una versión de python por defecto?
+* Uso de unicode. Cabecera
