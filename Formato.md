@@ -5,3 +5,14 @@
 ### Ejercicios
 
 ### Recursos
+
+
+```python
+
+```
+
+obteniendo
+
+```
+
+```
