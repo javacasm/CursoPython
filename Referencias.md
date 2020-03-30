@@ -25,6 +25,8 @@
 [Aprende programando](https://www.aprendeprogramando.es/cursos-online/python)
 
 
+[Manual de python desde 0 por Javier Fernández Panadero](https://lacienciaparatodos.wordpress.com/2019/10/10/manual-de-practicas-para-python-desde-cero/)
+
 ## Aprender con bloques
 
 [EduBlocks](app.edublocks.org)
