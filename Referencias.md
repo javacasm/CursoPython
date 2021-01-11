@@ -13,3 +13,26 @@
 [Curso de python de Alfredo](http://www.educoteca.com/curso_python.html)
 
 [Curso de Aprende Programando](https://www.aprendeprogramando.es/cursos-online/python)
+
+## Inglés
+
+[Python Tutorial for Beginners ](https://www.youtube.com/watch?time_continue=247&v=_uQrJ0TkZlc&feature=emb_logo)
+
+[Python Tutorial for Programmers - Python Crash Course](https://www.youtube.com/watch?v=f79MRyMsjrQ&feature=youtu.be)
+
+[Enorme colección de libros y cursos en python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers
+
+## Castellano
+
+
+[Curso de Sergio ...](https://aprendepython.es/)
+
+[Aprende programando](https://www.aprendeprogramando.es/cursos-online/python)
+
+
+[Manual de python desde 0 por Javier Fernández Panadero](https://lacienciaparatodos.wordpress.com/2019/10/10/manual-de-practicas-para-python-desde-cero/)
+
+## Aprender con bloques
+
+[EduBlocks](app.edublocks.org)
+

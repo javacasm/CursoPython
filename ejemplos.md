@@ -15,3 +15,10 @@ for i, word in enumerate(e):
 3 pis
 ``` 
 
+## Ideas para ejemplos
+
+Ejemplo de cole: listas, input, matrices, calculos....
+
+Calculo de la letra del nif
+
+
