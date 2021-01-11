@@ -14,3 +14,10 @@ listas
 bucles
 
 mltiplos
+
+
+## Instalación de paquetes y módulos
+
+Pip
+
+## Entornos virtuales
