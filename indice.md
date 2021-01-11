@@ -5,6 +5,11 @@
   * Alcance y utilidad
 1. Instalación y entorno
   * Consola online https://repl.it/languages/python3
+  * Editores
+     * [Thonny](./Thonny.md)
+     * [Visual Studio Code](./VSCode.md)
+     * [Anaconda](./Anaconda.md)
+     * [Jupyter](./Jupyter.md)
 1. Variables
   * Tipos
   * Conversión
