@@ -1,0 +1,5 @@
+## Numpy
+
+[A Visual Intro to NumPy and Data Representation](http://jalammar.github.io/visual-numpy/)
+
+[NumPy Tutorial: Your First Steps Into Data Science in Python](https://realpython.com/numpy-tutorial/)
