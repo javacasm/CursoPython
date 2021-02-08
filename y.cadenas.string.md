@@ -36,6 +36,13 @@ Sustituye todas las repeticiones de una cadena en otra dada
 
 ## ¿Codificaciones utf8 vs unicode vs ascii?
 
+
+
+## Formato
+
+
+Call str. format(number) with "{:. 2f}" as str and a float as number to return a string representation of the number with two decimal places.
+
 ### Referencia
 
 

@@ -1,6 +1,6 @@
 # Curso de Python
 
-[Índice](./indice.md)
+[Índice](./0.0.indice.md)
 
 [Código](./codigo/)
 
