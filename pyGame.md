@@ -14,5 +14,7 @@
  
  
  ## Recursos 
+
+https://realpython.com/pygame-a-primer/
  
 [Tutorial de videojuegos con pygame](https://www.pythonmania.net/es/2010/03/23/tutorial-pygame-introduccion/)
