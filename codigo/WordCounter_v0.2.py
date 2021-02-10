@@ -21,7 +21,10 @@ import os
 ficheros = os.listdir() 
 print('Fichero;lineas;palabras;caracteres:')
 for fichero in ficheros:   
-    nLineas,nPalabras,nCaracteres = fileWordCounter(fichero)
-    print('""{}"";{};{};{};'.format(fichero,nLineas,nPalabras,nCaracteres ))
+    try:
+        nLineas,nPalabras,nCaracteres = fileWordCounter(fichero)
+        print('"{}";{};{};{};'.format(fichero,nLineas,nPalabras,nCaracteres ))
+    except:
+        print('Error con ',fichero)
 
     
