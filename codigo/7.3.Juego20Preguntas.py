@@ -4,7 +4,7 @@
 
 import os
 
-v = '0.1'
+v = '0.9'
 
 def getRespuesta (pregunta) :
     """
@@ -23,30 +23,34 @@ elementos = []
 
 ficheroDatos = 'elementos.txt'
 
-if ficheroDatos in os.listdir(): # si existe lo cargamos
-    f = open(ficheroDatos,'r')
-    for linea in f.readlines():
-        linea = linea.strip() # eliminamos el final de línea
-        print(linea)
-        datos = linea.split(':')
-        if len(datos) == 4:
-            elemento = [datos[1],int(datos[2]),int(datos[3])]
-            elementos.append(elemento)
-        else:
-            print('Error recuperando datos:',datos )
-    print('Recuperados {} elementos',elementos.count)
-else:
-    print('No se encontraron datos anteriores...')
-    elementos = [['geranio',-1,-1]] # elemento, respuestaSi, respuestaNo
+def cargaElementos():
+    global elementos
+    if ficheroDatos in os.listdir(): # si existe lo cargamos
+        f = open(ficheroDatos,'r')
+        for linea in f.readlines():
+            if linea[0] == '#': # es un comentario
+                continue
+            linea = linea.strip() # eliminamos el final de línea
+            datos = linea.split(':')
+            if len(datos) == 4:
+                elemento = [datos[1],int(datos[2]),int(datos[3])]
+                elementos.append(elemento)
+            else:
+                print('Error recuperando datos:',datos )
+        print('Recuperados %d elementos'%len(elementos))
+    else:
+        print('No se encontraron datos anteriores...')
+        elementos = [['geranio',-1,-1]] # elemento, respuestaSi, respuestaNo
 
 def dumpElementos():
+    global elementos    
     contador = 0
-    print("id\ttext\tSi\tNo")
+    print("#id:text:Si:No")
     if ficheroDatos in os.listdir(): # si existe lo renombramos
         os.rename(ficheroDatos,ficheroDatos+'.old')
     f = open(ficheroDatos,'w')
     for e in elementos:
-        strElement = '%d:%s:%d:%d:\n'%(contador,e[0],e[1],e[2])
+        strElement = '%d:%s:%d:%d\n'%(contador,e[0],e[1],e[2])
         f.write(strElement)
         contador += 1
     f.close()
@@ -55,7 +59,7 @@ def main () :
     """
     Juego de las 20 preguntas, si no acierto, pide una pregunta para distinguir
     """
-    # dumpElementos()
+    cargaElementos()
     
     while True : ## Bucle principal del juego
 
