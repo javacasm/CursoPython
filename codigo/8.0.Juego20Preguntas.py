@@ -37,12 +37,9 @@ def main () :
 
     while True : ## Bucle principal del juego
 
-        # Preguntamos si queremos seguir jugando
-        if getRespuesta("¿Quieres pensar en una cosa? ") == False : 
-            print('¡Adiós!')
-            break # Terminamos
-
         nodoActual = nodoInicial # Empezamos con el nodo raiz
+
+        print('Piense en una cosa...')
 
         # Bucle de adivinación: Nos vamos moviendo por todo el árbol según sea la respuesta
         # hasta llegar a un nodo que no tenga enlaces que será una respuesta
@@ -67,14 +64,19 @@ def main () :
         if pregunta[0] == '¿' : pregunta = pregunta[1:]
         if pregunta[-1] == '?': pregunta = pregunta[:-1]
 
-        if not getRespuesta('Si el animal fuera %s ¿la respuesta sería? ' % nuevaCosa) :
-            nodoActual.nodoNo = Nodo(nuevoAnimal)
+        if not getRespuesta('Si fuera %s ¿la respuesta sería? ' % nuevaCosa) :
             nodoActual.nodoSi = Nodo(nodoActual.texto)
+            nodoActual.nodoNo = Nodo(nuevaCosa)
         else:
-            nodoActual.nodoSi = Nodo(nuevoAnimal)
+            nodoActual.nodoSi = Nodo(nuevaCosa)
             nodoActual.nodoNo = Nodo(nodoActual.texto)
 
         nodoActual.texto = pregunta
+
+        # Preguntamos si queremos seguir jugando
+        if getRespuesta("¿Quieres pensar en una cosa? ") == False : 
+            print('¡Adiós!')
+            break # Terminamos
 
 
 if __name__ == "__main__" : main ()

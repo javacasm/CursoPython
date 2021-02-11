@@ -1,0 +1,7 @@
+0:tiene patas:2:1
+1:es un animal:4:3
+2:perro:-1:-1
+3:geranio:-1:-1
+4:vive en el agua:6:5
+5:gusano:-1:-1
+6:pez:-1:-1
