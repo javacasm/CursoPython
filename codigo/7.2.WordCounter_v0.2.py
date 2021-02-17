@@ -20,11 +20,13 @@ def fileWordCounter(nombre_fichero):
 import os 
 ficheros = os.listdir() 
 print('Fichero;lineas;palabras;caracteres:')
-for fichero in ficheros:   
+for fichero in ficheros:
     try:
-        nLineas,nPalabras,nCaracteres = fileWordCounter(fichero)
-        print('"{}";{};{};{};'.format(fichero,nLineas,nPalabras,nCaracteres ))
+        if fichero.endswith('.md'):
+            nLineas,nPalabras,nCaracteres = fileWordCounter(fichero)
+            print('"{}";{};{};{};'.format(fichero,nLineas,nPalabras,nCaracteres ))
     except:
-        print('Error con ',fichero)
+        pass
+        # print('Error con ',fichero)
 
     
