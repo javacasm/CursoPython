@@ -1,4 +1,8 @@
 """
+Inspirado por el ejemplo de @CommitThatLine
+https://twitter.com/CommitThatLine/status/1363509699547701251
+
+
 Tabla con los tramos del IRPF
 https://www.finect.com/usuario/Josetrecet/articulos/como-funciona-renta-tramos-irpf
 
