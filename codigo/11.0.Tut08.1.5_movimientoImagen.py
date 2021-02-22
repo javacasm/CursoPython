@@ -35,17 +35,15 @@ black = (0,0,0)
 
 pygame.init() # Inicializa el entorno de pygame
 
-
 # Music
-pygame.mixer.music.load('./music/Fortunate Note - Silent Partner.mp3') # cargamos el fichero
+#pygame.mixer.music.load('./music/Fortunate Note - Silent Partner.mp3') # cargamos el fichero
+pygame.mixer.music.load('./music/Fortunate Note - Silent Partner.ogg') # cargamos el fichero
 pygame.mixer.music.set_volume(0.5 ) # volumen entre 0 y 1.0
 pygame.mixer.music.play()
 
 # Screen
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Movimiento rectángulo')
-
-miImagen = pygame.image.load('./images/python-logo.png') # cargamos la imagen
 
 # coordenadas del cuadrado
 x = 200

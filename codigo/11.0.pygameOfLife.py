@@ -1,4 +1,3 @@
-
 # pyGame of Life
 # Siguiendo tutorial de .dotcsv  https://www.youtube.com/watch?v=qPtKv9fSHZY
 

@@ -44,7 +44,7 @@ rect_width = 20
 rect_height = 20
 
 # velocidad de movimiento
-vel = 10
+vel = 1
 
 running = True
 
