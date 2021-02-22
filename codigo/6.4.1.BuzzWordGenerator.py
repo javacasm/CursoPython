@@ -72,13 +72,13 @@ progressive, knowledgeable, authority.
 
 from random import randint
 
-columna1 = ['integrated', 'total', 'systematized', 'parallel', 'functional',
-            'responsive', 'optimal', 'synchronized', 'compatible', 'balanced']
-columna2 = ['management', 'organizational', 'monitored', 'reciprocal',
+columna1 = ('integrated', 'total', 'systematized', 'parallel', 'functional',
+            'responsive', 'optimal', 'synchronized', 'compatible', 'balanced')
+columna2 = ('management', 'organizational', 'monitored', 'reciprocal',
             'digital', 'logistical', 'transitional', 'incremental',
-            'third-generation', 'policy']
-columna3 = ['options', 'flexibility', 'capability', 'mobility', 'programming',
-            'concept', 'time-phase', 'projection', 'hardware', 'contingency']
+            'third-generation', 'policy')
+columna3 = ('options', 'flexibility', 'capability', 'mobility', 'programming',
+            'concept', 'time-phase', 'projection', 'hardware', 'contingency')
 
 # Genera 3 cifras aleatorias y obtiene el buzzword correspondiente
 def generateRandomBuzzWord():
