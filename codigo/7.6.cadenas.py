@@ -1,3 +1,14 @@
+"""
+Ejemplo de cadenas y su procesamiento
+
+Vamos a ver:
+* como dividir una cadena en partes delimitadas por un caracter ":"
+* nos quedamos con la segunda parte 
+* reemplazar algunos caracteres por otros
+* dividir la frase en palabras
+"""
+
+
 cadena = "Recipe 5: Rewriting, and the Immutable String"
 
 ## método 1
