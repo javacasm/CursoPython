@@ -1,0 +1,27 @@
+<html lang="es">
+<head><title>Cálculo de % de IRPF a pagar</title></head>
+<body>
+    <table>
+        <tr><td><strong>Importe tramo</strong></td><td><strong>% tramo</strong></td><td><strong>Importe pagado</strong></td></tr>
+        {% for filaDato in filasDatos %}
+        <tr><td>{{ filaDato[0] }}</td><td>{{ filaDato[1] }}</td><td>{{ filaDato[2] }}</td></tr>        
+        {% endfor %}
+        <tr><td></td></tr> {{ dejamos un poco de espacio}}
+        <tr><td></td></tr>
+        <tr><td><strong>Total</strong></td></tr>
+        <tr><td>Sueldo Bruto</td><td>% efectivo</td><td>Impuestos Pagados</td></tr>        
+        <tr><td>{{ sueldo }}</td><td>{{ porcentaje_efectivo }}</td><td>{{ importe_pagado }}</td></tr>
+    </table>
+<br/><br/>
+
+<h2>{{ resultado_msg }}</h2>
+
+<form action="/" method="POST">
+        <label>Sueldo Bruto</label>
+        <input type="text" name="sueldo"/>
+        <br/><br/>
+        <input type="submit"/>
+        </form>
+
+    </body>
+</html>

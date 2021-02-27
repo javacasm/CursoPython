@@ -1,5 +1,29 @@
 # Referencias
 
+
+## 12  - WEB
+
+### Flask 
+
+[Plantillas](https://www.josedomingo.org/pledin/2018/04/flask-plantillas-con-jinja2-4a-parte/)
+
+[Información sobre la petición (request)](https://www.josedomingo.org/pledin/2018/03/flask-trabajando-con-peticiones-y-respuestas-3a-parte/#el-objeto-request)
+
+[Mensajes de error](https://www.josedomingo.org/pledin/2018/04/flask-plantillas-con-jinja2-4a-parte/#generando-p%C3%A1ginas-de-error-con-plantillas)
+
+[Ficheros estáticos (imágenes, css, ...)](https://www.josedomingo.org/pledin/2018/03/flask-trabajando-con-peticiones-y-respuestas-3a-parte/#acceder-al-contenido-est%C3%A1tico)
+
+[Rutas avanzado](https://www.josedomingo.org/pledin/2018/03/flask-enrutamiento-2a-parte/)
+
+
+### Cursos
+
+[Curso de python3 PLEDIN](https://plataforma.josedomingo.org/pledin/cursos/python3/)
+
+[Libro JJ - Aprende python en el siglo XXI](https://github.com/JJ/1line-py)
+
+### Cajón de sastre
+
 [Learn Python Programming](https://www.programiz.com/python-programming) [Examples](https://www.programiz.com/python-programming/examples) [Reference](https://www.programiz.com/python-programming/methods) [Emulador python](https://www.programiz.com/python-programming/online-compiler/)
 
 [Aprende python desde 0 (bq)](http://diwo.bq.com/course/python-curso/)

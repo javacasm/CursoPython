@@ -1,5 +1,7 @@
 ## Recetario/Cookbook
 
+# DRAFT / VERSION 0.0
+
 ## ¿Como saber la versión de python que esatams usando?
 
 import sys
