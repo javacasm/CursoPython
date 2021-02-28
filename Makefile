@@ -2,6 +2,7 @@ DIR_PUBLICACION="./publicacion"
 
 FCB = "Z.Cookbook.md"
 SCB = "Recetario.docx"
+S11 = "11.Juegos con pyGame.docx"
 S12 = "12.Servidores y sevicios Web.docx"
 
 all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
@@ -28,18 +29,15 @@ CB:
 					12.2.Ejemplo_Calculo_irpf.md \
 					12.5.1.ServiciosWeb.md   
 
-1:
+11:
 	pandoc --latex-engine=xelatex \
 					--from=markdown \
 					-V papersize:a4paper \
 					--template=./LaTeX_ES.latex \
-					-o $(S1) \
+					-o $(S11) \
 					Cabecera.md        \
 					Cabecera_latex.md \
-					"Tema 1.0 Qué es Raspberry.md" \
-					"Tema 1.1 Algo de Historia.md" \
-					"Tema 1.2 Proyectos donde se usa Raspberry Pi.md" \
-					"Tema 1.3 Documentación.md" 
+					"11.0.pyGame.md" 
 
 2:
 	pandoc --latex-engine=xelatex       \

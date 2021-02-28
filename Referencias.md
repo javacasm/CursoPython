@@ -22,6 +22,8 @@
 
 [Libro JJ - Aprende python en el siglo XXI](https://github.com/JJ/1line-py)
 
+[Tutorial interactivo de python](https://snakify.org/es/)
+
 ### Cajón de sastre
 
 [Learn Python Programming](https://www.programiz.com/python-programming) [Examples](https://www.programiz.com/python-programming/examples) [Reference](https://www.programiz.com/python-programming/methods) [Emulador python](https://www.programiz.com/python-programming/online-compiler/)
