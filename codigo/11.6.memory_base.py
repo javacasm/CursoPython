@@ -1,6 +1,5 @@
 # from https://www.pygame.org/project/3675/5767
-# Otra opción https://inventwithpython.com/pygame/chapter3.html
-# https://stackoverflow.com/questions/59121989/blitting-images-onto-a-tile-that-is-part-of-a-grid-in-pygame
+
 #Load modules and initialize display
 import os, random, time, pygame
 
@@ -29,7 +28,7 @@ ARIAL_35 = pygame.font.SysFont("Arial", 35)
 ARIAL_20 = pygame.font.SysFont("Arial", 20)
 
 ANCHO_CARTA = 100
-MARGEN_CARTAS = 10
+MARGEN_ENTRE_CARTAS = 10
 CARD_HOR_PAD = 37
 CARD_VER_PAD = 22
 
@@ -50,15 +49,15 @@ for i in range(nFilas):
     if i == 0:
         for j in range(nColumn):
             if j == 0:
-                CARD_GRID[i].append(pygame.Rect(MARGEN_CARTAS, MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
+                CARD_GRID[i].append(pygame.Rect(MARGEN_ENTRE_CARTAS, MARGEN_ENTRE_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
             else:
-                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_CARTAS, MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
+                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_ENTRE_CARTAS, MARGEN_ENTRE_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
     else:
         for j in range(nColumn):
             if j == 0:
-                CARD_GRID[i].append(pygame.Rect(MARGEN_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
+                CARD_GRID[i].append(pygame.Rect(MARGEN_ENTRE_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_ENTRE_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
             else:
-                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
+                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_ENTRE_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_ENTRE_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
 global exposed
 exposed = []
 global matched

@@ -54,7 +54,7 @@ while running:
             running = False 
     
     if event.type == pygame.KEYDOWN:
-            print('Teca pulsada: '+event.unicode)
+            print('Tecla pulsada: '+event.unicode)
 
             if event.key == pygame.K_q: # salimos con la tecla q
                 running == False
