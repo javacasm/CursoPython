@@ -1,19 +1,3 @@
-## Ejercicios colecciones
-
-/home/javacasm/Dropbox/Cursos/BioInformatica/Semana5/Tareas/Tareas5.ipynb
-
-
-## Ejemplo: Jugando con barajas
-
-
-[![Vídeo: Ejemplo de uso de listas, tuplas y cadenas: Base para Juego de Cartas](https://img.youtube.com/vi/CsgLWsBVKc8/0.jpg)](https://youtu.be/CsgLWsBVKc8)
-
-
-[Vídeo: Ejemplo de uso de listas, tuplas y cadenas: Base para Juego de Cartas](https://youtu.be/CsgLWsBVKc8)
-
-
-
-```python
 ## Basado en game.py de https://realpython.com/python-type-checking/#example-a-deck-of-cards
 
 import random
@@ -95,4 +79,3 @@ def juego():
 
 if __name__ == "__main__":
     juego()
-```

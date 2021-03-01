@@ -3,58 +3,75 @@
 # https://stackoverflow.com/questions/59121989/blitting-images-onto-a-tile-that-is-part-of-a-grid-in-pygame
 #Load modules and initialize display
 import os, random, time, pygame
+
 pygame.init()
+
+#tamaño de la pantalla
 SCREEN = (700,450)
+
 #ICON = pygame.image.load(os.path.join("memory.png"))
 #pygame.display.set_icon(ICON)
+
 pygame.display.set_caption("Memory")
 DISPLAY = pygame.display.set_mode(SCREEN)
 
-#Define objects and generate number grid
+# Colores
+
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
+
+# Fuentes de letras
 ARIAL_200 = pygame.font.SysFont("Arial", 200)
 ARIAL_50 = pygame.font.SysFont("Arial", 50)
 ARIAL_35 = pygame.font.SysFont("Arial", 35)
 ARIAL_20 = pygame.font.SysFont("Arial", 20)
-CARD_LEN = 100
-CARD_MARGIN = 10
+
+ANCHO_CARTA = 100
+MARGEN_CARTAS = 10
 CARD_HOR_PAD = 37
 CARD_VER_PAD = 22
-ROWS = 4
-COLS = 5
-cards = [i for i in range(10) for j in range(2)]
+
+nFilas = 4
+nColumn = 5
+
+# Creamos las cartas con los numeros del 0 al nFilas*nColumn/2
+cards = [i for i in range(nFilas * nColumn // 2) for j in range(2)]
+# Las desordenamos
 random.shuffle(cards)
-CARD_VAL_GRID = [cards[i*len(cards) // ROWS:(i+1)*len(cards) // ROWS] for i in range(ROWS)]
-CARD_GRID = [[] for i in range(ROWS)]
-for i in range(ROWS):
+
+CARD_VAL_GRID = [cards[i*len(cards) // nFilas:(i+1)*len(cards) // nFilas] for i in range(nFilas)]
+
+# Creamos una matriz de nFilas
+CARD_GRID = [[] for i in range(nFilas)]
+
+for i in range(nFilas):
     if i == 0:
-        for j in range(COLS):
+        for j in range(nColumn):
             if j == 0:
-                CARD_GRID[i].append(pygame.Rect(CARD_MARGIN, CARD_MARGIN, CARD_LEN, CARD_LEN))
+                CARD_GRID[i].append(pygame.Rect(MARGEN_CARTAS, MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
             else:
-                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + CARD_LEN + CARD_MARGIN, CARD_MARGIN, CARD_LEN, CARD_LEN))
+                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_CARTAS, MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
     else:
-        for j in range(COLS):
+        for j in range(nColumn):
             if j == 0:
-                CARD_GRID[i].append(pygame.Rect(CARD_MARGIN, CARD_GRID[i-1][0].y + CARD_LEN + CARD_MARGIN, CARD_LEN, CARD_LEN))
+                CARD_GRID[i].append(pygame.Rect(MARGEN_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
             else:
-                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + CARD_LEN + CARD_MARGIN, CARD_GRID[i-1][0].y + CARD_LEN + CARD_MARGIN, CARD_LEN, CARD_LEN))
+                CARD_GRID[i].append(pygame.Rect(CARD_GRID[i][j-1].x + ANCHO_CARTA + MARGEN_CARTAS, CARD_GRID[i-1][0].y + ANCHO_CARTA + MARGEN_CARTAS, ANCHO_CARTA, ANCHO_CARTA))
 global exposed
 exposed = []
 global matched
 matched = []
 global wrong
 wrong = []
-global turns
-turns = 0
+global intentos
+intentos = 0
 
-#Game loop
+# bucle principal
 while True:
     for event in pygame.event.get():
-        #Detect quit
+        # Terminamos
         if event.type == pygame.QUIT:
             pygame.quit()
 
@@ -62,10 +79,10 @@ while True:
     pressed = list(pygame.mouse.get_pressed())
     for i in range(len(pressed)):
         if pressed[i]:
-            for i in range(ROWS):
-                for j in range(COLS):
+            for i in range(nFilas):
+                for j in range(nColumn):
                     mouse_pos = list(pygame.mouse.get_pos())
-                    if mouse_pos[0] >= CARD_GRID[i][j].x and mouse_pos[1] >= CARD_GRID[i][j].y and mouse_pos[0] <= CARD_GRID[i][j].x + CARD_LEN and mouse_pos[1] <= CARD_GRID[i][j].y + CARD_LEN:
+                    if mouse_pos[0] >= CARD_GRID[i][j].x and mouse_pos[1] >= CARD_GRID[i][j].y and mouse_pos[0] <= CARD_GRID[i][j].x + ANCHO_CARTA and mouse_pos[1] <= CARD_GRID[i][j].y + ANCHO_CARTA:
                         global has_instance
                         has_instance = False
                         for k in range(len(exposed)):
@@ -80,7 +97,7 @@ while True:
                             exposed.append([i, j])
                             
     if len(exposed) == 2:
-        turns += 1
+        intentos += 1
         if CARD_VAL_GRID[exposed[0][0]][exposed[0][1]] == CARD_VAL_GRID[exposed[1][0]][exposed[1][1]]:
             matched.extend(exposed)
             exposed.clear()
@@ -93,8 +110,8 @@ while True:
     DISPLAY.fill(BLACK)
 
     #Draw cards
-    for i in range(ROWS):
-        for j in range(COLS):
+    for i in range(nFilas):
+        for j in range(nColumn):
             pygame.draw.rect(DISPLAY, (255, 255, 255), CARD_GRID[i][j])
             
     #Draw numbers
@@ -119,7 +136,7 @@ while True:
     #Draw other stuff
     title = ARIAL_35.render("Memory", True, WHITE)
     DISPLAY.blit(title, (570, 10))
-    turn_text = ARIAL_20.render("Intentos: " + str(turns), True, WHITE)
+    turn_text = ARIAL_20.render("intentos: " + str(intentos), True, WHITE)
     DISPLAY.blit(turn_text, (580, 75))
 
     #Check win

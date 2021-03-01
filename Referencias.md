@@ -1,5 +1,15 @@
 # Referencias
 
+## 3 - Variables
+
+[Tipos disponibles](https://www.w3schools.com/python/python_datatypes.asp)
+
+[Type Checking](https://realpython.com/python-type-checking/)
+
+## 7 colecciones
+
+[NewType para definir nuevos tipos](https://docs.python.org/3/library/typing.html#newtype)
+[Type Checking](https://realpython.com/python-type-checking/)
 
 ## 12  - WEB
 
