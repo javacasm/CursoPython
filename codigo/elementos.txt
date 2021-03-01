@@ -1,4 +1,5 @@
-#id:text:Si:No0:es un animal:2:1
+#id:text:Si:No
+0:es un animal:2:1
 1:geranio:-1:-1
 2:tiene patas:4:3
 3:gusano:-1:-1
