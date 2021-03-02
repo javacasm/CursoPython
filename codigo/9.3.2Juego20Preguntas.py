@@ -2,7 +2,7 @@
 # http://openbookproject.net/py4fun/animal/animal.py
 # 
 
-v = '0.5'
+v = '0.9'
 
 iTexto = 0
 iRespuestaSi = 1
@@ -21,7 +21,7 @@ class Nodo :
     def __init__ (self, texto, idNodo, nodoSi = None, nodoNo = None) : # Por defecto es una respuesta
         self.texto   = texto # Guardamos la pregunta o la respuesta
         self.nodoSi  = nodoSi
-        self.nodoNo   = nodoNo
+        self.nodoNo  = nodoNo
         self.idNodo  = idNodo
 
     def setText(self, texto):
@@ -36,9 +36,9 @@ class Nodo :
 
     def __str__(self):
         if self.isPregunta():
-            strElement = '%d:%s:%d:%d\n'%(self.idNodo, self.texto,self.nodoSi.idNodo, self.nodoNo.idNodo)
+            strElement = '%d:%s:%d:%d'%(self.idNodo, self.texto,self.nodoSi.idNodo, self.nodoNo.idNodo)
         else:
-            strElement = '%d:%s:%d:%d\n'%(self.idNodo, self.texto,iSinConexion,iSinConexion)        
+            strElement = '%d:%s:%d:%d'%(self.idNodo, self.texto,iSinConexion,iSinConexion)        
         return strElement
 
     def __eq__(self, otroNodo):
@@ -93,7 +93,6 @@ def getRespuesta (pregunta) :
 
 elementos = []
 
-
 def buscaNodobyId(id):
     for nodo in elementos:
         if nodo.idNodo == id:
@@ -115,20 +114,22 @@ def cargaElementos():
             linea = linea.strip() # eliminamos el final de línea
             datos = linea.split(':')
             if len(datos) == 4:
+                texto = datos[1]
+                idNodo = int(datos[0])
                 if datos[3] == datos[2] == str(iSinConexion): # Es una respuesta
-                    nodo = Respuesta(datos[1], int(datos[0]))
+                    nodo = Respuesta(texto, idNodo)
                     nRespuestas += 1
                 else: # Es una pregunta
                     idSi = int(datos[2])
                     nodoSi = buscaNodobyId(idSi)
                     idNo = int(datos[3])
                     nodoNo = buscaNodobyId(idNo)
-                    idNodo = int(datos[0])
-                    nodo = Pregunta(datos[1],idNodo, nodoSi, nodoNo)
+                    nodo = Pregunta(texto,idNodo, nodoSi, nodoNo)
                     nPreguntas += 1
                 elementos.append(nodo) 
             else:
                 print('Error recuperando datos:',datos )
+                
         elementos.reverse() # La invierto para que esté en el orden antural
         print(f'Recuperados {len(elementos)} elementos: {nRespuestas} respuestas y {nPreguntas} preguntas.')
     else:
@@ -144,32 +145,14 @@ def guardaElementos():
     f.write("#id:text:Si:No\n")
     elementos_ordenados = sorted(elementos)
     for nodo in elementos_ordenados:
-        f.write(str(nodo))
+        f.write(str(nodo)+'\n')
     f.close()
     print(f'Guardados {len(elementos)} nodos')
 
 def dumpElementos(): # Lo utilizamos como depuración para ver que funciona
-    contador = 0
     print("id\t\t\ttext\tSi\tNo")
-    #for e in elementos:
-    for texto,idSi,idNo in elementos:
-        #print('%d\t%s\t%d\t%d'%(contador,e[iTexto],e[iRespuestaSi],e[iRespuestaNo]))
-        print('%d\t%s\t%d\t%d'%(contador, texto, idSi, idNo))
-        contador += 1
-
-def getRespuesta (pregunta) :
-    """
-    Mostrarmos la pregunta y esperamos la respuesta
-    Cualquier respuesta que empiece con 's' es Sí, el resto No
-    Devuelve True para Sí, False para No
-    """
-    respuesta = input (pregunta)
-    respuestaProcesada = respuesta[0:1].lower() # Convertimos a minúscula y nos quedamos con la primera letra
-    if respuestaProcesada == 's' : 
-        return True
-    else: 
-        return False
-
+    for nodo in elementos:
+        print(str(nodo))
 
 def main () :
     """
@@ -197,14 +180,13 @@ def main () :
                 nodoActual = nodoActual.nodoNo
         
         # No hay más preguntas... tenemos la respuesta
-        if getRespuesta('¿Es un ' + nodoActual.texto + '? ') :  # Hemos acertado
+        if getRespuesta(f'¿Es un {nodoActual.texto}? ') :  # Hemos acertado
             print('¡¡Acerté!!')
             continue ## Volvemos al bucle principal
         
         ## La respuesta no es correcta
         nuevaCosa = input ('¿Qué es? ')
-        pregunta  = input ('¿Qué puedo preguntar para distinguir %s de %s? '
-                                  % (nuevaCosa,nodoActual.texto))
+        pregunta  = input (f'¿Qué puedo preguntar para distinguir {nuevaCosa} de {nodoActual.texto}? ')
 
         # Vamos a crear 2 nodos:
         #  * uno con la nueva Respuesta 
@@ -212,7 +194,7 @@ def main () :
         nuevaRespuesta = Respuesta(nuevaCosa,len(elementos))
         elementos.append(nuevaRespuesta)
         # le ponemos el idNodo de la anterior respuesta para mantenerlos "ordenados"
-        if not getRespuesta('Si fuera %s ¿la respuesta sería? ' % nuevaCosa) :
+        if not getRespuesta(f'Si fuera {nuevaCosa} ¿la respuesta sería? ') :
             nuevoPregunta = Pregunta(pregunta, nodoActual.idNodo, nodoActual, nuevaRespuesta)
         else:
             nuevoPregunta = Pregunta(pregunta, nodoActual.idNodo, nuevaRespuesta, nodoActual)
@@ -234,5 +216,5 @@ def main () :
             print('¡Adiós!')
             break # Terminamos
 
-
-if __name__ == "__main__" : main ()
+if __name__ == "__main__" :
+    main ()
