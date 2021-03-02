@@ -1,4 +1,3 @@
-#id:text:Si:No
 0:tiene patas:2:1
 1:es un animal:4:3
 2:se mueve solo:15:16
@@ -14,7 +13,5 @@
 12:cafe:-1:-1
 13:libro:-1:-1
 14:movil:-1:-1
-15:le gusta el queso:17:18
+15:perro:-1:-1
 16:mesa:-1:-1
-17:raton:-1:-1
-18:perro:-1:-1

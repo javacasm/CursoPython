@@ -13,7 +13,7 @@ Sonidos de https://mixkit.co/free-sound-effects/game/
 
 
 """
-import random, pygame, time
+import random, pygame, time, sys
 
 pygame.init()
 
@@ -22,9 +22,10 @@ nColumn = 4
 
 ANCHO_CARTA = 110
 MARGEN_ENTRE_CARTAS = 10
+ALTO_TEXTO = 100
 
 screen_size = ((ANCHO_CARTA + MARGEN_ENTRE_CARTAS) * nColumn
-, (ANCHO_CARTA + MARGEN_ENTRE_CARTAS) * nFilas + 100)
+            , (ANCHO_CARTA + MARGEN_ENTRE_CARTAS) * nFilas + ALTO_TEXTO)
 
 # Colores
 
@@ -38,8 +39,9 @@ pygame.mixer.init()
 
 volteoSound = pygame.mixer.Sound('music/Volteo.wav')
 
-imageFiles = ['images/bola.png', 'images/bumeran.png', 'images/coche.png', 'images/cohete.png', 'images/manzana.png', 'images/pez.png', 'images/polo.png','images/banana.png']
-
+imageFiles = ['images/bola.png', 'images/bumeran.png', 'images/coche.png',
+              'images/cohete.png', 'images/manzana.png', 'images/pez.png',
+              'images/polo.png','images/banana.png']
 images = []
 
 for imageFile in imageFiles:
@@ -68,6 +70,7 @@ class Carta():
         return self.text
 
     def isInside(self,x,y):
+        # Comprombamos y la posicion (x,y) esta dentro de la carta
         if self.x < x < self.x + ANCHO_CARTA:
             if self.y < y < self.y + ANCHO_CARTA:
                 return True
@@ -81,16 +84,12 @@ class Carta():
         self.isVisible = estado
 
     def draw(self,screen):
-        # pygame.draw.rect(Tile.surface, Tile.fg_color, self.rect, Tile.border_width) 
-        #         image_rect = self.content.get_rect(center = self.rect.center)
-        # Tile.surface.blit(self.content, image_rect)
         if self.isVisible or self.isVolteado:
-            screen.blit(images[self.idImagen],(self.x, self.y)) # después copiamos la imagen
-            # dib = ARIAL_200.render(self.text,True,WHITE)
-            # screen.blit(dib, (self.x + MARGEN_ENTRE_CARTAS, self.y + MARGEN_ENTRE_CARTAS))
+            # mostramos la imagen
+            screen.blit(images[self.idImagen],(self.x, self.y)) 
         else:
-            screen.blit(imagenOculto,(self.x, self.y)) # después copiamos la imagen
-            # pygame.draw.rect(screen,WHITE,self.myRect)
+            # mostramos la interrogacion
+            screen.blit(imagenOculto,(self.x, self.y)) 
 
 cartas = []
 
@@ -103,7 +102,8 @@ for i in range(0,nColumn):
     for j in range(0,nFilas):
         xPos = (ANCHO_CARTA + MARGEN_ENTRE_CARTAS) * i
         yPos = (ANCHO_CARTA + MARGEN_ENTRE_CARTAS) * j
-        carta = Carta(xPos, yPos, str(idDibujos[contador]),idDibujos[contador])
+        carta = Carta(xPos, yPos,
+                      str(idDibujos[contador]), idDibujos[contador])
         cartas.append(carta)
         contador += 1
 
@@ -116,6 +116,7 @@ while bRunning:
         # Terminamos
         if event.type == pygame.QUIT:
             pygame.quit()
+            sys.exit()
     
     if pygame.mouse.get_pressed()[0]:
         (mouse_x,mouse_y) = pygame.mouse.get_pos()
@@ -166,8 +167,4 @@ while bRunning:
         cartaVolteada2.setVolteado(False)
         cartaVolteada1 = cartaVolteada2 = None
         bHayCambios = True
-
-
-
-
 
