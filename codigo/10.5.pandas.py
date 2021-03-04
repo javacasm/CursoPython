@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 # Documentación sobre Pandas https://colab.research.google.com/github/ageron/handson-ml2/blob/master/tools_pandas.ipynb
 import pandas 
 
-datos = pandas.read_csv('company_sales_data.csv',sep = ',') # Es un dataFrame (tabla)
+datos = pandas.read_csv('data/company_sales_data.csv',sep = ',') # Es un dataFrame (tabla)
 
 datos
 
