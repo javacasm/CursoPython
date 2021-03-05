@@ -91,7 +91,7 @@ class Juego20():
     eRespuestaNuevo = 5
     eActualizaArbol = 6
 
-    def __init__(self, ficheroDatos = 'elementos.txt'):
+    def __init__(self, ficheroDatos = 'nodos.txt'):
         self.ficheroDatos = ficheroDatos
         self.nodos = []
         self.v = '0.9.1'

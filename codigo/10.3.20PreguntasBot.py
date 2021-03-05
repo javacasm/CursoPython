@@ -23,6 +23,7 @@ def main():
     global update_id, juego
     
     
+    
     # Telegram Bot Authorization Token
     bot = telegram.Bot('1601664464:AAG6cs0_ubFPh_ogOwtsDCOa1MpIuwNRK7Y')
 
@@ -34,7 +35,9 @@ def main():
         update_id = None
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
+    
+    print(d'20 Preguntas Bot {v}')
+    
     while True:
         try:
             updateBot(bot)
