@@ -101,7 +101,7 @@ class Juego20():
     def __init__(self, ficheroDatos = 'nodos.txt'):
         self.ficheroDatos = ficheroDatos
         self.nodos = []
-        self.v = '0.9.2'
+        self.v = '0.9.3'
         self.estado = Juego20.eNoEstado
         self.detallesEstado = []
         self.bDebug = True
@@ -117,6 +117,7 @@ class Juego20():
         respuesta = respuesta.lower()
         if respuesta == 'dump':  # Hace un volcado de los datos si se envia 'dump'
             self.dumpNodos()
+            return False
         if respuesta in ('vale', 'claro', 'bueno'):
             respuesta = 's'
         respuestaProcesada = respuesta[0:1] # Convertimos a minúscula y nos quedamos con la primera letra
@@ -251,7 +252,7 @@ class Juego20():
                 respuesta += self.getPreguntaFromNodo(nodoInicial)
             else:
                 self.estado = Juego20.eNoEstado
-                respuesta = 'Ok, otro dia sera'
+                respuesta = 'Ok, otro día sera'
                 self.detallesEstado.clear()            
         elif self.estado == Juego20.ePregunta:                  # Hacemos preguntas
             if self.procesaRespuestaSN(mensaje):
@@ -262,18 +263,18 @@ class Juego20():
             respuesta = self.getPreguntaFromNodo(nuevoNodo)
         elif self.estado == Juego20.eHipotesis:                 #  hipotesis
             if self.procesaRespuestaSN(mensaje):
-                respuesta = '¡¡ACERTE!!\n\n¿Quieres Jugar a las 20 Preguntas?'
+                respuesta = '¡¡ACERTÉ!!\n\n¿Quieres Jugar a las 20 Preguntas?'
                 self.estado = Juego20.eQuieresJugar
                 self.detallesEstado.clear()
             else:
-                respuesta = '¿Que es?'           
+                respuesta = '¿Qué es?'           
                 self.estado = Juego20.eQueEs
         elif self.estado == Juego20.eQueEs:                     # Aprender algo
             self.estado = Juego20.ePreguntaDiferencia
-            respuesta = f'¿Que puedo preguntar para diferenciar {mensaje} de {self.detallesEstado[0].texto}?'
+            respuesta = f'¿Qué puedo preguntar para diferenciar {mensaje} de {self.detallesEstado[0].texto}?'
             self.detallesEstado.append(mensaje) #detal[0]:actual detal[1]:nuevaCosa
         elif self.estado == Juego20.ePreguntaDiferencia:        # Nueva pregunta
-            respuesta = f'Para un {self.detallesEstado[1]} ¿la respuesta seria?'
+            respuesta = f'Para un {self.detallesEstado[1]} ¿la respuesta sería?'
             self.detallesEstado.append(mensaje) #detal[0]:actual detal[1]:nuevaCosa detal[2]:nuevaPregunta
             self.estado = Juego20.eRespuestaNuevo
         elif self.estado == Juego20.eRespuestaNuevo:            # Respuesta Nueva cosa
@@ -287,7 +288,7 @@ class Juego20():
             else: # Para el nuevo no
                 nuevaPregunta = Pregunta(self.detallesEstado[2], len(self.nodos), respuestaActual, respuestaNueva)
             self.nodos.append(nuevaPregunta)
-            
+            self.detallesEstado.clear()
             # ponemos la nueva pregunta donde estaba la antigua respuesta
             if respuestaActual.parent != None:
                 if respuestaActual.parent.nodoSi == respuestaActual:
@@ -308,11 +309,10 @@ class Juego20():
         elif self.estado == Juego20.eActualizaArbol:                # Guardamos
             respuesta = 'Añadido otro mas'
         else:
-            respuesta = 'Error en la codificacion de los estados'
+            respuesta = 'Error en la codificación de los estados'
             print(respuesta)
             
         return respuesta
-
 
 
 if __name__ == '__main__':
