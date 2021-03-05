@@ -36,7 +36,7 @@ def main():
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     
-    print(d'20 Preguntas Bot {v}')
+    print(f'20 Preguntas Bot {v}')
     
     while True:
         try:
