@@ -1,8 +1,3 @@
-# Basado en Animal.py by Chris Meyers and Fred Obermann Python4fun
-# http://openbookproject.net/py4fun/animal/animal.py
-# 
-
-
 import os, time
 
 iTexto = 0
@@ -81,6 +76,11 @@ class Pregunta(Nodo):
 
 
 class Juego20():
+    '''
+    Juego de las 20 preguntas
+    Utiliza una máquina de estados
+    '''
+
     # estados
     eNoEstado = -1 
     eQuieresJugar = 0
@@ -360,5 +360,5 @@ if __name__ == '__main__':
     juego = Juego20()
     pregunta ='¡Hola! '
     while True:
-        respuesta = input(pregunta+' ')
+        respuesta = input(pregunta + ' ')
         pregunta = juego.updateEstado(respuesta)
