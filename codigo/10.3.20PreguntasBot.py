@@ -6,12 +6,14 @@ on the telegram.ext bot framework.
 This program is dedicated to the public domain under the CC0 license.
 """
 import logging
+import os
+import shutil
 import telegram
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 import Preguntas20
 
-v = '1.0'
+v = '1.1'
 
 update_id = None
 juegos = {} # diccionarios de juegos con chat_id como clave
@@ -59,7 +61,10 @@ def updateBot(bot):
             if update.message.chat_id in juegos.keys():
                 juego = juegos[update.message.chat_id]
             else: # Es nuevo
-                juego = Preguntas20.Juego20('nodos.txt')
+                userfile = f'nodos_{update.message.from_user.first_name}.txt'
+                if not userfile in  os.listdir():
+                    shutil.copyfile('nodos.txt',userfile)
+                juego = Preguntas20.Juego20(userfile)
                 juegos[update.message.chat_id] = juego
                 print(f'Eres {update.message.from_user.first_name} desde {update.message.chat_id} ')
                 # juego.dumpElementos()

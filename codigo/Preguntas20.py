@@ -5,7 +5,6 @@
 
 import os, time
 
-
 iTexto = 0
 iRespuestaSi = 1
 iRespuestaNo = 2
@@ -224,42 +223,43 @@ class Juego20():
 
     def updateEstado(self, mensaje):
         respuesta = ''
-        if  self.estado == Juego20.eNoEstado:  # Estado inicial
+        if  self.estado == Juego20.eNoEstado:                    # Estado inicial
             respuesta = 'Hola\n¿Quieres Jugar a las 20 Preguntas?'
             self.estado = Juego20.eQuieresJugar
             self.detallesEstado.clear()
-        elif self.estado == Juego20.eQuieresJugar: # ¿Quieres jugar?
+        elif self.estado == Juego20.eQuieresJugar:               # ¿Quieres jugar?
             if self.procesaRespuestaSN(mensaje):
                 nodoInicial = self.buscaNodobyId(0)
-                respuesta = self.getPreguntaFromNodo(nodoInicial)
+                respuesta = 'Piensa una cosa\n'
+                respuesta += self.getPreguntaFromNodo(nodoInicial)
             else:
                 self.estado = Juego20.eNoEstado
                 respuesta = 'Ok, otro dia sera'
                 self.detallesEstado.clear()            
-        elif self.estado == Juego20.ePregunta:  # Hacemos preguntas
+        elif self.estado == Juego20.ePregunta:                  # Hacemos preguntas
             if self.procesaRespuestaSN(mensaje):
                 nuevoNodo = self.detallesEstado[0].nodoSi
             else:
                 nuevoNodo = self.detallesEstado[0].nodoNo
             self.detallesEstado[0] = nuevoNodo
             respuesta = self.getPreguntaFromNodo(nuevoNodo)
-        elif self.estado == Juego20.eHipotesis:   # Hemos hecho una hipotesis
+        elif self.estado == Juego20.eHipotesis:                 #  hipotesis
             if self.procesaRespuestaSN(mensaje):
                 respuesta = '¡¡ACERTE!!\n\n¿Quieres Jugar a las 20 Preguntas?'
                 self.estado = Juego20.eQuieresJugar
                 self.detallesEstado.clear()
             else:
-                respuesta = '¿Que es?'           # Vamos a aprender algo nuevo
+                respuesta = '¿Que es?'           
                 self.estado = Juego20.eQueEs
-        elif self.estado == Juego20.eQueEs:     
+        elif self.estado == Juego20.eQueEs:                     # Aprender algo
             self.estado = Juego20.ePreguntaDiferencia
             respuesta = f'¿Que puedo preguntar para diferenciar {mensaje} de {self.detallesEstado[0].texto}?'
-            self.detallesEstado.append(mensaje) #detal[0] actual detal[1] nuevaCosa
-        elif self.estado == Juego20.ePreguntaDiferencia:
+            self.detallesEstado.append(mensaje) #detal[0]:actual detal[1]:nuevaCosa
+        elif self.estado == Juego20.ePreguntaDiferencia:        # Nueva pregunta
             respuesta = f'Para un {self.detallesEstado[1]} ¿la respuesta seria?'
-            self.detallesEstado.append(mensaje) #detal[0] actual detal[1] nuevaCosa detal[2] nuevaPregunta
+            self.detallesEstado.append(mensaje) #detal[0]:actual detal[1]:nuevaCosa detal[2]:nuevaPregunta
             self.estado = Juego20.eRespuestaNuevo
-        elif self.estado == Juego20.eRespuestaNuevo:
+        elif self.estado == Juego20.eRespuestaNuevo:            # Respuesta Nueva cosa
             # creamos la nueva respuesta
             respuestaActual = self.detallesEstado[0]
             respuestaNueva = Respuesta(self.detallesEstado[1], len(self.nodos))
@@ -278,13 +278,13 @@ class Juego20():
                 respuestaActual.parent.nodoNo = nuevaPregunta
             else:
                 print('Tenemos un problema')
-            if self.bDebug:
                 self.dumpNodos()
-            self.guardaNodos(self.ficheroDatos+'Pruebas.txt')
+                
+            self.guardaNodos()
             
             self.estado = Juego20.eQuieresJugar
             respuesta = 'Entendido\n\n¿Quieres Jugar a las 20 Preguntas?'
-        elif self.estado == Juego20.eActualizaArbol:
+        elif self.estado == Juego20.eActualizaArbol:                # Guardamos
             respuesta = 'Añadido otro mas'
         else:
             respuesta = 'Error en la codificacion de los estados'
@@ -355,3 +355,10 @@ class Juego20():
                 print('¡Adiós!')
                 break # Terminamos
 
+
+if __name__ == '__main__':
+    juego = Juego20()
+    pregunta ='¡Hola! '
+    while True:
+        respuesta = input(pregunta+' ')
+        pregunta = juego.updateEstado(respuesta)
