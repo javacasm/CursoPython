@@ -16,7 +16,7 @@ class Nodo :
     Si es una pregunta apunta a un nodo si la respuesta es Sí y a otro si es No
     Los nodos que son respuetas no apuntan a ningún otro nodo
     """
-    v = '0.9.3'
+    v = '0.9.4'
     def __init__ (self, texto, idNodo, nodoSi = None, nodoNo = None) : # Por defecto es una respuesta
         self.texto   = texto # Guardamos la pregunta o la respuesta
         self.nodoSi  = nodoSi
@@ -59,9 +59,10 @@ class Nodo :
         return self.idNodo < otroNodo.idNodo
 
 class Respuesta(Nodo):
-    def __init__(self,nuevaCosa, idNodo):
-        ## eliminamos el artículo si estuviera
-        for art in ['el','la','los','las','un','una','unos','unas']:
+    def __init__(self, nuevaCosa, idNodo):
+        nuevaCosa = nuevaCosa.lower() # Todo minusculas
+        ## eliminamos artículo y 'es' si estuviera
+        for art in ('es', 'el','la','los','las','un','una','unos','unas'):
             if nuevaCosa.startswith(art + ' '):
                 print('# quitando ' + art)
                 nuevaCosa = nuevaCosa[len(art) + 1:]    
@@ -73,6 +74,7 @@ class Respuesta(Nodo):
 
 class Pregunta(Nodo):
     def __init__(self, pregunta, idNodo, nodoSi, nodoNo):
+        pregunta = pregunta.lower()  # Todo minusculas
         if pregunta[0] == '¿' : pregunta = pregunta[1:]
         if pregunta[-1] == '?': pregunta = pregunta[:-1]        
         super().__init__( pregunta, idNodo, nodoSi = nodoSi, nodoNo = nodoNo)
@@ -99,12 +101,12 @@ class Juego20():
     def __init__(self, ficheroDatos = 'nodos.txt'):
         self.ficheroDatos = ficheroDatos
         self.nodos = []
-        self.v = '0.9.1'
+        self.v = '0.9.2'
         self.estado = Juego20.eNoEstado
         self.detallesEstado = []
         self.bDebug = True
         
-        print(f'Juego20 v{self.v}')
+        print(f'Juego20 v{self.v} & nodo v{Nodo.v}')
         self.cargaNodos()
 
     def procesaRespuestaSN (self, respuesta) :
@@ -112,10 +114,13 @@ class Juego20():
         Cualquier respuesta que empiece con 's' o 'y' es Sí, el resto No
         Devuelve True para Sí, False para No
         """
+        respuesta = respuesta.lower()
         if respuesta == 'dump':  # Hace un volcado de los datos si se envia 'dump'
-            self.dumpNodos()    
-        respuestaProcesada = respuesta[0:1].lower() # Convertimos a minúscula y nos quedamos con la primera letra
-        if respuestaProcesada == 's' : 
+            self.dumpNodos()
+        if respuesta in ('vale', 'claro', 'bueno'):
+            respuesta = 's'
+        respuestaProcesada = respuesta[0:1] # Convertimos a minúscula y nos quedamos con la primera letra
+        if respuestaProcesada in ('s','y') : 
             return True
         else: 
             return False
@@ -193,7 +198,8 @@ class Juego20():
         '''
         Guarda los nodos en fichero
         Formato idNodo:texto:idNodoSi:idNodoNo
-        '''        
+        '''
+        strResultado=''
         if fichero == None:
             fichero = self.ficheroDatos
             
@@ -203,10 +209,16 @@ class Juego20():
         f = open(fichero ,'wt')
         f.write("#id:text:Si:No\n")
         elementos_ordenados = sorted(self.nodos)
+        preguntas = 0
+        respuestas = 0
         for nodo in elementos_ordenados:
+            if nodo.isPregunta(): preguntas += 1
             f.write(str(nodo)+'\n')
         f.close()
-        print(f'Guardados {len(self.nodos)} nodos en {fichero} ')
+        strResultado = f'Guardados {len(self.nodos)} nodos en {fichero} \n'
+        strResultado += f'Ya se {preguntas} cosas'
+        print(strResultado)
+        return strResultado
 
     def dumpNodos(self): # Lo utilizamos como depuración para ver que funciona
         print("id\t\t\ttext\tSi\tNo")
@@ -277,15 +289,19 @@ class Juego20():
             self.nodos.append(nuevaPregunta)
             
             # ponemos la nueva pregunta donde estaba la antigua respuesta
-            if respuestaActual.parent.nodoSi == respuestaActual:
-                respuestaActual.parent.nodoSi = nuevaPregunta
-            elif respuestaActual.parent.nodoNo == respuestaActual:
-                respuestaActual.parent.nodoNo = nuevaPregunta
+            if respuestaActual.parent != None:
+                if respuestaActual.parent.nodoSi == respuestaActual:
+                    respuestaActual.parent.nodoSi = nuevaPregunta
+                elif respuestaActual.parent.nodoNo == respuestaActual:
+                    respuestaActual.parent.nodoNo = nuevaPregunta
+                else:
+                    print('Tenemos un problema')
+                    self.dumpNodos()
             else:
                 print('Tenemos un problema')
                 self.dumpNodos()
-                
-            self.guardaNodos()
+                            
+            resultadoGuardar = self.guardaNodos()
             
             self.estado = Juego20.eQuieresJugar
             respuesta = 'Entendido\n\n¿Quieres Jugar a las 20 Preguntas?'
@@ -298,72 +314,13 @@ class Juego20():
         return respuesta
 
 
-    def main_old_function(self) :
-        """
-        Juego de las 20 preguntas, si no acierto, pide una pregunta para distinguir
-        """
-
-        print('JUEGO DE LAS 20 PREGUNTAS\n')
-
-        self.cargaNodos()
-
-        while True : ## Bucle principal del juego
-
-            nodoActual = buscaNodobyId(0)  # Empezamos con el nodo raiz
-       
-            print('Piense en una cosa...\n')
-
-            # Bucle de adivinación: Nos vamos moviendo por todo el árbol según sea la respuesta
-            # hasta llegar a un nodo que no tenga enlaces que será una respuesta
-            lastNodo = None 
-            while nodoActual.isPregunta() :
-                lastNodo = nodoActual # nos sirve para buscar el padre del actual nodo si tenemos que cambiarlos
-                if getRespuesta('¿' + nodoActual.texto + '? ') == True : ## Nos movemos al siguiente nodo según sea la respuesta
-                    nodoActual = nodoActual.nodoSi 
-                else : 
-                    nodoActual = nodoActual.nodoNo
-            
-            # No hay más preguntas... tenemos la respuesta
-            if getRespuesta(f'¿Es un {nodoActual.texto}? ') :  # Hemos acertado
-                print('¡¡Acerté!!')
-                continue ## Volvemos al bucle principal
-            
-            ## La respuesta no es correcta
-            nuevaCosa = input ('¿Qué es? ')
-            pregunta  = input (f'¿Qué puedo preguntar para distinguir {nuevaCosa} de {nodoActual.texto}? ')
-
-            # Vamos a crear 2 nodos:
-            #  * uno con la nueva Respuesta 
-            #  * otro con la pregunta
-            nuevaRespuesta = Respuesta(nuevaCosa,len(elementos))
-            self.nodos.append(nuevaRespuesta)
-            # le ponemos el idNodo de la anterior respuesta para mantenerlos "ordenados"
-            if not getRespuesta(f'Si fuera {nuevaCosa} ¿la respuesta sería? ') :
-                nuevoPregunta = Pregunta(pregunta, nodoActual.idNodo, nodoActual, nuevaRespuesta)
-            else:
-                nuevoPregunta = Pregunta(pregunta, nodoActual.idNodo, nuevaRespuesta, nodoActual)
-
-            nodoActual.idNodo = len(elementos) # Lo ponemos en la última posición
-            self.nodos.append(nuevoPregunta)
-            
-            # Vamos a buscar quien apunta
-            if lastNodo.nodoSi == nodoActual:
-                lastNodo.nodoSi = nuevoPregunta
-            elif lastNodo.nodoNo == nodoActual:
-                lastNodo.nodoNo = nuevoPregunta
-            else:
-                print('Tenemos un problema') 
-            guardaNodos()
-
-            # Preguntamos si queremos seguir jugando
-            if getRespuesta("¿Quieres pensar en una cosa? ") == False : 
-                print('¡Adiós!')
-                break # Terminamos
-
 
 if __name__ == '__main__':
-    juego = Juego20()
+    juego = Juego20('nodos_Javacasm.txt')
     pregunta ='¡Hola! '
     while True:
-        respuesta = input(pregunta + ' ')
-        pregunta = juego.updateEstado(respuesta)
+        try:
+            respuesta = input(pregunta + ' ')
+            pregunta = juego.updateEstado(respuesta)
+        except:
+            print('bye')

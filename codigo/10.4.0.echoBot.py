@@ -4,6 +4,10 @@
 This is built on the API wrapper, see echobot2.py to see the same example built
 on the telegram.ext bot framework.
 This program is dedicated to the public domain under the CC0 license.
+
+pip3 install python-telegram
+pip3 install python-telegram-bot
+
 """
 import logging
 import telegram
