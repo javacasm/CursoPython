@@ -71,7 +71,10 @@ def updateBot(bot):
                 juegos[update.message.chat_id] = juego
                 print(f'Eres {update.message.from_user.first_name} desde {update.message.chat_id} ')
                 # juego.dumpElementos()
+            print(f'{update.message.from_user.first_name} >> {update.message.text}')
             respuesta = juego.updateEstado(update.message.text )
+            str_respuesta = respuesta.replace('\n', '\n' + update.message.from_user.first_name + ' << ')
+            print(f'{update.message.from_user.first_name} << {str_respuesta}')
             
             update.message.reply_text(respuesta)
 

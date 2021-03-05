@@ -230,7 +230,7 @@ class Juego20():
         elif self.estado == Juego20.eQuieresJugar:               # ¿Quieres jugar?
             if self.procesaRespuestaSN(mensaje):
                 nodoInicial = self.buscaNodobyId(0)
-                respuesta = 'Piensa una cosa\n'
+                respuesta = 'Piensa una cosa...\n\n'
                 respuesta += self.getPreguntaFromNodo(nodoInicial)
             else:
                 self.estado = Juego20.eNoEstado
