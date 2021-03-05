@@ -30,7 +30,7 @@ def main():
     
     
     # Telegram Bot Authorization Token
-    bot = telegram.Bot('1601664464:AAG6cs0_ubFPh_ogOwtsDCOa1MpIuwNRK7Y')
+    bot = telegram.Bot('PON_TU_TOKEN')
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.

@@ -1,3 +1,8 @@
+'''
+Version 100% Orientada a objetos
+Clases: Nodo, Respuesta y Pregunta
+Clase : Juego20
+'''
 import os, time
 
 iTexto = 0

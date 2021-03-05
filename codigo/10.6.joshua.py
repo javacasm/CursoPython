@@ -1,4 +1,4 @@
-# joshua 20 Questions
+# Joshua juega a  20 Preguntas
 
 import pyttsx3
 import Preguntas20
