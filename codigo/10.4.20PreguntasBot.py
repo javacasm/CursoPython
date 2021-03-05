@@ -16,19 +16,18 @@ from telegram.error import NetworkError, Unauthorized
 from time import sleep
 import Preguntas20
 
-v = '1.1'
+v = '1.2'
 
 
 
 update_id = None
 juegos = {} # diccionarios de juegos con chat_id como clave
-
 def main():
     """Run the bot."""
     global update_id, juego
     
     # Telegram Bot Authorization Token
-    bot = telegram.Bot('1563564271:AAGUmlPaUXOWPWRLAcxdTjQy01KMQR70-nk')
+    bot = telegram.Bot('12341234:PON-AQUI-TU-TOKEN')
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.

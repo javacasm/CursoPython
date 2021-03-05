@@ -118,7 +118,7 @@ class Juego20():
         if respuesta == 'dump':  # Hace un volcado de los datos si se envia 'dump'
             self.dumpNodos()
             return False
-        if respuesta in ('vale', 'claro', 'bueno'):
+        if respuesta in ('vale', 'claro', 'bueno', 'ok'):
             respuesta = 's'
         respuestaProcesada = respuesta[0:1] # Convertimos a minúscula y nos quedamos con la primera letra
         if respuestaProcesada in ('s','y') : 
