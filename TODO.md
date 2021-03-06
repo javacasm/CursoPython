@@ -1,8 +1,27 @@
 ## 1
 
 TODO: Buscar mas IDEs online
+PythonFiddle
+repl.it
+Trinket
 
-TODO: Video sobre 1er uso de Thonny
+## 2 
+para parar
+    Ctrl C
+
+Huevo de pascua 
+import this
+
+
+
+Encabezado del fichero 
+https://www.javaer101.com/es/article/3560433.html
+
+
+
+## Generando la documentación 
+https://projects.raspberrypi.org/en/projects/documenting-your-code/4
+
 
 ## 12
 12.0 Texto: Explicacion sobre WEB
