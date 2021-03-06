@@ -1,15 +1,29 @@
 # Referencias
 
+## 0 - Introducción
+
+[Grandes empresas usan Python](https://realPython.com/world-class-companies-using-Python/)
+
+[Software que usa Python](https://en.wikipedia.org/wiki/List_of_Python_software)
+
+[Popular program in Python](https://codeinstitute.net/blog/7-popular-software-programs-written-in-Python/)
+
+## 1.1 IDEs
+
+[Diferentes IDEs](https://www.kdnuggets.com/2021/01/best-Python-ide-code-editors.html)
+
+[Instalacion](https://www.youtube.com/watch?v=9HPf0UE1s2U)
+
 ## 3 - Variables
 
-[Tipos disponibles](https://www.w3schools.com/python/python_datatypes.asp)
+[Tipos disponibles](https://www.w3schools.com/Python/Python_datatypes.asp)
 
-[Type Checking](https://realpython.com/python-type-checking/)
+[Type Checking](https://realPython.com/Python-type-checking/)
 
 ## 7 colecciones
 
-[NewType para definir nuevos tipos](https://docs.python.org/3/library/typing.html#newtype)
-[Type Checking](https://realpython.com/python-type-checking/)
+[NewType para definir nuevos tipos](https://docs.Python.org/3/library/typing.html#newtype)
+[Type Checking](https://realPython.com/Python-type-checking/)
 
 ## 12  - WEB
 
@@ -28,29 +42,34 @@
 
 ### Cursos
 
-[Curso de python3 PLEDIN](https://plataforma.josedomingo.org/pledin/cursos/python3/)
+[The Python Tutorial](https://docs.python.org/3/tutorial/index.html#tutorial-index)
 
-[Libro JJ - Aprende python en el siglo XXI](https://github.com/JJ/1line-py)
+[Curso de Python3 PLEDIN](https://plataforma.josedomingo.org/pledin/cursos/Python3/)
 
-[Tutorial interactivo de python](https://snakify.org/es/)
+[Libro JJ - Aprende Python en el siglo XXI](https://github.com/JJ/1line-py)
+
+[Tutorial interactivo de Python](https://snakify.org/es/)
 
 ### Cajón de sastre
 
-[Learn Python Programming](https://www.programiz.com/python-programming) [Examples](https://www.programiz.com/python-programming/examples) [Reference](https://www.programiz.com/python-programming/methods) [Emulador python](https://www.programiz.com/python-programming/online-compiler/)
+[Learn Python Programming](https://www.programiz.com/Python-programming) 
+[Examples](https://www.programiz.com/Python-programming/examples) 
+[Reference](https://www.programiz.com/Python-programming/methods) 
+[Emulador Python](https://www.programiz.com/Python-programming/online-compiler/)
 
-[Aprende python desde 0 (bq)](http://diwo.bq.com/course/python-curso/)
+[Aprende Python desde 0 (bq)](http://diwo.bq.com/course/Python-curso/)
 
-[Curso de python con Processing](https://www.youtube.com/watch?v=jpWmmFE4PbY&list=PLWFBhjhRekODXHilkWOONhA0CB4WKv8Pw)
+[Curso de Python con Processing](https://www.youtube.com/watch?v=jpWmmFE4PbY&list=PLWFBhjhRekODXHilkWOONhA0CB4WKv8Pw)
 
-[Curso de python para impacientes](https://python-para-impacientes.blogspot.com/p/indice.html)
+[Curso de Python para impacientes](https://Python-para-impacientes.blogspot.com/p/indice.html)
 
-[Libro Python para todos](http://mundogeek.net/tutorial-python/)
+[Libro Python para todos](http://mundogeek.net/tutorial-Python/)
 
 [Intro a Python en 90 minutos](https://www.youtube.com/watch?v=CCz5umwMTTE)
 
-[Curso de python de Alfredo](http://www.educoteca.com/curso_python.html)
+[Curso de Python de Alfredo](http://www.educoteca.com/curso_Python.html)
 
-[Curso de Aprende Programando](https://www.aprendeprogramando.es/cursos-online/python)
+[Curso de Aprende Programando](https://www.aprendeprogramando.es/cursos-online/Python)
 
 ## Inglés
 
@@ -58,17 +77,17 @@
 
 [Python Tutorial for Programmers - Python Crash Course](https://www.youtube.com/watch?v=f79MRyMsjrQ&feature=youtu.be)
 
-[Enorme colección de libros y cursos en python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers
+[Enorme colección de libros y cursos en Python.org](https://wiki.Python.org/moin/BeginnersGuide/Programmers
 
 ## Castellano
 
 
-[Curso de Sergio ...](https://aprendepython.es/)
+[Curso de Sergio ...](https://aprendePython.es/)
 
-[Aprende programando](https://www.aprendeprogramando.es/cursos-online/python)
+[Aprende programando](https://www.aprendeprogramando.es/cursos-online/Python)
 
 
-[Manual de python desde 0 por Javier Fernández Panadero](https://lacienciaparatodos.wordpress.com/2019/10/10/manual-de-practicas-para-python-desde-cero/)
+[Manual de Python desde 0 por Javier Fernández Panadero](https://lacienciaparatodos.wordpress.com/2019/10/10/manual-de-practicas-para-Python-desde-cero/)
 
 ## Aprender con bloques
 

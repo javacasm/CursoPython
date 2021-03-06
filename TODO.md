@@ -1,3 +1,9 @@
+## 1
+
+TODO: Buscar mas IDEs online
+
+TODO: Video sobre 1er uso de Thonny
+
 ## 12
 12.0 Texto: Explicacion sobre WEB
 12.2 Vídeo web irpf
