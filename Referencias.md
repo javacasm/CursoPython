@@ -20,6 +20,11 @@
 
 [Type Checking](https://realPython.com/Python-type-checking/)
 
+[f-strings](https://zetcode.com/python/fstring/)
+
+
+[Tutorial sobre string](https://www.programiz.com/python-programming/string)
+
 ## 7 colecciones
 
 [NewType para definir nuevos tipos](https://docs.Python.org/3/library/typing.html#newtype)
