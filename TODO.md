@@ -20,6 +20,10 @@ Bases https://aprendepython.es/datatypes/numbers/#bases
 
 Ordenar las explicaciones por tipos....
 
+
+TODO: ¿Tipos de excepciones?
+
+
 ## 6
 
 Encabezado del fichero 
