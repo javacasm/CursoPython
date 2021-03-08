@@ -1,4 +1,3 @@
-# Tarea 3
 """
  cálculo de multiplos de 5 entre 1 y 1000
 

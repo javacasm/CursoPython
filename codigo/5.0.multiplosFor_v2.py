@@ -12,10 +12,12 @@
 for numero in range(1, 1001):
     bMultiplo5 = numero % 5 == 0  # comprobamos si es múltiplo de 5
     bMultiplo7 = numero % 7 == 0  # comprobamos si es múltiplo de 7
-    if bMultiplo5 and bMultiplo7 :
-        print(f' {numero} es múltiplo de 5 y de 7')
-    elif bMultiplo5 :
-        print(f' {numero} es múltiplo de 5')
-    elif bMultiplo7 :
-        print(f' {numero} es múltiplo de 5 y de 7')
+    strMensaje = ''
+    if bMultiplo5 or bMultiplo7 :
+        strMensaje = f' {numero} es múltiplo'
+        if bMultiplo5 : 
+            strMensaje += ' de 5'
+        if bMultiplo7 :
+            strMensaje += ' de 7'
+        print(strMensaje)
 

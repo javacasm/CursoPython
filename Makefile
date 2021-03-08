@@ -48,6 +48,31 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					"2.4.DepuracionconThonny.md" \
 					"2.6.EjecucionLineaComandos.md"
 
+3:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					-o  $(S3)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					"3.0.0.Variables.md" \
+					"3.0.1.Entrada.md" \
+					"3.1.Tipos.md" \
+					"3.2.ConversionTipos.md" \
+					"3.3.Excepciones.md" \
+					"3.4.OperadoresAritmeticos.md" \
+					"3.6.cadenas.string.md" 
+
+4:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					-o  $(S4)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					"4.0.SentenciasCondicionales.md" \
+					"4.5.3.OperadoresLogicos.md"
+
 CB:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
