@@ -23,6 +23,11 @@ Ordenar las explicaciones por tipos....
 
 TODO: ¿Tipos de excepciones?
 
+incluir los ejemplos 3.x en el texto
+
+## 4
+
+incluir los ejemplos 3.x en el texto 
 
 ## 6
 
