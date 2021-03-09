@@ -1,8 +1,7 @@
-# Tema 2 - Primeros Ejemplos
+# Tema 5 - Bucles
 
 ## Objetivos
 
-* Creación de ficheros de código
-* Conocer las normas de escritura de código en Python: formato, comentarios, ...
-* Aprender a usar de la consola
-* Conocer el IDE Thonny
+* Entender el concepto de bucle y cómo implementarlo en Python
+* Conocer el uso y utilidad de bucle **while**
+* Conocer el uso y utilidad de bucle **for**
