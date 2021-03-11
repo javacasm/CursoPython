@@ -1,8 +1,9 @@
-# Tema 2 - Primeros Ejemplos
+# Tema 6 - Funciones
 
 ## Objetivos
 
-* Creación de ficheros de código
-* Conocer las normas de escritura de código en Python: formato, comentarios, ...
-* Aprender a usar de la consola
-* Conocer el IDE Thonny
+* Entender el concepto de función 
+* Usar función con parámetros y argumentos por defecto
+* Saber cómo crear una función que devuelva resultados
+* Conocer la diferencia entre variables locales y globales.
+* Entender el concepto de recursividad
