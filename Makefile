@@ -46,7 +46,8 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					"2.3.FicherosCodigo.md" \
 					"2.4.3.Comentarios.md" \
 					"2.4.DepuracionconThonny.md" \
-					"2.6.EjecucionLineaComandos.md"
+					"2.6.EjecucionLineaComandos.md" \
+					"2.8.FixingThonny.md"
 
 3:
 	pandoc --latex-engine=xelatex   \
@@ -82,6 +83,21 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					Cabecera_latex.md \
 					"5.0.Bucles.md" \
 					"5.3.DiferenciasSiVienesDeArduino.md"
+
+6:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					-o  $(S6)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					6.0.Funciones.md \
+					6.1.0.VSCode.md \
+					6.1.5.DepuracionFunciones.md \
+					6.2.VariablesGlobales.md \
+					6.3.FuncionesRecursivas.md \
+					6.5.DepuracionVariables.md
+
 CB:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
@@ -134,5 +150,4 @@ push:
 	git commit -m "update" $(S2);
 	git commit -m "update" $(S1);
 	git push;
-
 
