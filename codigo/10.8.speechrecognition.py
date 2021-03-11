@@ -1,0 +1,1 @@
+# speech recosnition https://www.techwithtim.net/tutorials/voice-assistant/getting-microphone-input/

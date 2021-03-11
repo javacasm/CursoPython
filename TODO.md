@@ -31,6 +31,8 @@ incluir los ejemplos 3.x en el texto
 
 ## 6
 
+Como usar número variable de argumentos
+
 Encabezado del fichero 
 https://www.javaer101.com/es/article/3560433.html
 
