@@ -1,4 +1,4 @@
-# Aprender a programar Python 
+# Aprende a programar Python 
 
 ![Logo Python](./images/python-logo.png)
 
