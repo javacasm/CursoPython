@@ -18,6 +18,21 @@ S12 = "Tema 12 Servidores y sevicios Web.docx"
 
 all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 
+1bis:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
+					-o  'bis'$(S1)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					"0.0.0.SobreElCurso.md" \
+					"0.1.Introduccion.md" \
+					"0.2.ApendiceCompilados_vs_Interpretados.md" \
+					"1.1.0.Entornos.md" \
+					"1.1.3.Thonny.md" \
+					"1.1.8.IntalacionConsola.md" 
+
 1:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
