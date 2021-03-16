@@ -43,6 +43,13 @@ https://projects.raspberrypi.org/en/projects/documenting-your-code/4
 
 ## 7
 
+Podemos hacer diversos tipos de ordenacion con 
+
+reverse - If true, the sorted list is reversed (or sorted in Descending order)
+key - function that serves as a key for the sort comparison
+
+
+
 Pasar a f-string
 
 ## 8

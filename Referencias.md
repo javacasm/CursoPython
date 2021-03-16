@@ -30,6 +30,8 @@
 [NewType para definir nuevos tipos](https://docs.Python.org/3/library/typing.html#newtype)
 [Type Checking](https://realPython.com/Python-type-checking/)
 
+[Referencia listas](https://www.programiz.com/python-programming/list)
+
 ## 12  - WEB
 
 ### Flask 

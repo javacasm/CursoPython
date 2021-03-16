@@ -113,6 +113,28 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					6.3.FuncionesRecursivas.md \
 					6.5.DepuracionVariables.md
 
+7:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					-o  $(S7)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					7.0.TiposColecciones.md \
+					7.1.0.Tuplas.md \
+					7.1.1.Ejemplo_GeneradorTextos.md \
+					7.1.2.CalculoIRPF.md \
+					7.2.0.Listas.md \
+					7.2.1.Matrices.md \
+					7.2.1.Juego20Preguntas.md \
+					7.4.Ejemplo_Descifrando.md \
+					7.5.Diccionarios.md \
+					7.6.CadenasYColecciones.md \
+					7.6.Conjuntos_Sets.md \
+					7.7.Utilides.md \
+					7.8.EjerciosColecciones.md \
+					7.9.IndicacionTiposColecciones.md					
+
 CB:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
@@ -165,4 +187,5 @@ push:
 	git commit -m "update" $(S2);
 	git commit -m "update" $(S1);
 	git push;
+
 
