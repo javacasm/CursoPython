@@ -123,10 +123,10 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					7.0.TiposColecciones.md \
 					7.1.0.Tuplas.md \
 					7.1.1.Ejemplo_GeneradorTextos.md \
-					7.1.2.CalculoIRPF.md \
+					7.1.2.Ejemplo_CalculoIRPF.md \
 					7.2.0.Listas.md \
 					7.2.1.Matrices.md \
-					7.2.1.Juego20Preguntas.md \
+					7.2.1.Ejemplo_Juego20Preguntas.md \
 					7.4.Ejemplo_Descifrando.md \
 					7.5.Diccionarios.md \
 					7.6.CadenasYColecciones.md \
