@@ -103,6 +103,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S6)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -111,7 +112,8 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					6.1.5.DepuracionFunciones.md \
 					6.2.VariablesGlobales.md \
 					6.3.FuncionesRecursivas.md \
-					6.5.DepuracionVariables.md
+					6.5.DepuracionVariables.md \
+					6.A.CreacionProgramas.md
 
 7:
 	pandoc --latex-engine=xelatex   \
