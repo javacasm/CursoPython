@@ -1,8 +1,10 @@
-# Tema 2 - Primeros Ejemplos
+# Tema 7 - Coleccionies en Python
 
 ## Objetivos
 
-* Creación de ficheros de código
-* Conocer las normas de escritura de código en Python: formato, comentarios, ...
-* Aprender a usar de la consola
-* Conocer el IDE Thonny
+* Conocer los diferentes tipos de colecciones
+* Entener el concepto de tupla
+* Saber usar las listas
+* Aprender a usar los diccionarios
+* Entender el uso de los conjuntos
+
