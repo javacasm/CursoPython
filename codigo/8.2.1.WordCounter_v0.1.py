@@ -1,6 +1,7 @@
 # Fichero quijote.txt de https://gist.github.com/jsdario/6d6c69398cb0c73111e49f1218960f79
 
-nombre_fichero = 'el_quijote.txt'
+nombre_fichero = 'codigo/data/el_quijote.txt'
+
 file = open(nombre_fichero, 'rt') # Abrimos el fichero en modo lectura de texto
 
 numero_lineas = 0
@@ -12,12 +13,14 @@ for lineaRaw in file:
 
     palabras = linea.split() # Lista de palabras
     numero_lineas += 1
-    numero_palabras += len(palabras)
+    numero_palabras += len(palabras) 
     numero_caracteres += len(linea)
 
 file.close()
 
-print('"{}" {} {} {} '.format(nombre_fichero,
-                              numero_lineas, numero_palabras, numero_caracteres))
-
+# formato antiguo
+print('"{}" {} {} {} '.format( 
+    nombre_fichero, numero_lineas, numero_palabras, numero_caracteres))
+# usando f-string    
+# print(f'"{nombre_fichero}" {numero_lineas} {numero_palabras} {numero_caracteres}')
     

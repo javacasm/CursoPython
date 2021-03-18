@@ -1,3 +1,5 @@
+import os 
+
 def fileWordCounter(nombre_fichero):
     file = open(nombre_fichero, "rt")
 
@@ -17,7 +19,7 @@ def fileWordCounter(nombre_fichero):
 
     return numero_lineas, numero_palabras, numero_caracteres
 
-import os 
+
 ficheros = os.listdir() 
 print('Fichero;lineas;palabras;caracteres:')
 for fichero in ficheros:
