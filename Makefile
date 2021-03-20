@@ -155,20 +155,60 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					8.3.0.EscrituraFicheros.md \
 					8.3.1.Juego20PreguntasGuardar.md
 
-CB:
+9:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
-					-o  $(SCB)  \
+					--reference-doc=plantilla.docx \
+					-o  $(S9)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
-					$(FCB)
+					9.0.ClasesYobjetos.md \
+					9.3.0.Herencia.md \
+					9.3.1.EjemploSencilloOO.md \
+					9.3.2.Juego20Preguntas_OO.md
+
+10:
+	pandoc --latex-engine=xelatex \
+					--from=markdown \
+					-V papersize:a4paper \
+					--template=./LaTeX_ES.latex \
+					--reference-doc=plantilla.docx \
+					-o $(S10) \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					10.0.ModulosLibrerias.md \
+					10.1.LibreriaEstandar.md \
+					10.3.Instalacionpip.md \
+					10.4.BotTelegram.md \
+					10.5.0.Jupyter.md \
+					10.5.1.RepresentacionDatos.md \
+					10.5.Comparativa_tiempos.md \
+					10.5.numpy_v2.md \
+					10.6.Aleatorio.md \
+					10.6.Espeak.md \
+					10.7.0.TrabajandoFechas.md \
+					10.7.SpechToText.md
+
+11:
+	pandoc --latex-engine=xelatex \
+					--from=markdown \
+					-V papersize:a4paper \
+					--template=./LaTeX_ES.latex \
+					--reference-doc=plantilla.docx \
+					-o $(S11) \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					11.0.pyGame.md \
+					11.0.pyGame.md \
+					11.6.Memory.md					
 
 12:
 	pandoc --latex-engine=xelatex \
 					--from=markdown \
 					-V papersize:a4paper \
 					--template=./LaTeX_ES.latex \
+					--reference-doc=plantilla.docx \
 					-o $(S12) \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -177,36 +217,11 @@ CB:
 					12.2.Ejemplo_Calculo_irpf.md \
 					12.5.1.ServiciosWeb.md   
 
-11:
-	pandoc --latex-engine=xelatex \
-					--from=markdown \
-					-V papersize:a4paper \
-					--template=./LaTeX_ES.latex \
-					-o $(S11) \
+CB:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					-o  $(SCB)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
-					"11.0.pyGame.md" 
-
-
-clean:
-	rm $(S5) $(S6) $(S1) $(S2) $(S3) $(S4) $(SFAQ)
-
-publish:
-	cp $(s7) $(S5) $(S6) $(S1) $(S2) $(S3) $(S4) $(SFAQ) $(SMAT) $(DIR_PUBLICACION)
-	cp *Objetivos*.pdf $(DIR_PUBLICACION)
-	cp *Ejercicio*.pdf $(DIR_PUBLICACION)
-	cp *Test*.pdf $(DIR_PUBLICACION)
-
-
-push:
-	git commit -m "update" $(S7);
-	git commit -m "update" $(S5);
-	git commit -m "update" $(S6);
-	git commit -m "update" $(S3);
-	git commit -m "update" $(S4);
-	git commit -m "update" $(S2);
-	git commit -m "update" $(S1);
-	git push;
-
-
-
+					$(FCB)
