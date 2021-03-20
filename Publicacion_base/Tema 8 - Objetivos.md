@@ -1,8 +1,9 @@
-# Tema 2 - Primeros Ejemplos
+# Tema 8 - Ficheros
+
+El objetivo de este Tema 8 es aprender a trabajar con ficheros.
 
 ## Objetivos
 
-* Creación de ficheros de código
-* Conocer las normas de escritura de código en Python: formato, comentarios, ...
-* Aprender a usar de la consola
-* Conocer el IDE Thonny
+* Aprender a realizar tareas de gestión de ficheros
+* Saber leer el contenido de ficheros
+* Conocer cómo escribir en ficheros
