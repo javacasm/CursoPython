@@ -20,11 +20,11 @@ def fileWordCounter(nombre_fichero):
     return numero_lineas, numero_palabras, numero_caracteres
 
 
-ficheros = os.listdir() 
+print('Revisando directorio '+os.getcwd())
 print('Fichero;lineas;palabras;caracteres:')
-for fichero in ficheros:
+for fichero in os.listdir():
     try:
-        if fichero.endswith('.py'):
+        if os.path.isfile(fichero) and  fichero.endswith('.py'):
             nLineas,nPalabras,nCaracteres = fileWordCounter(fichero)
             print('"{}";{};{};{};'.format(fichero,nLineas,nPalabras,nCaracteres ))
     except:

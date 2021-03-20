@@ -36,6 +36,14 @@
 
 [Referencia diccionarios](https://www.w3schools.com/python/python_dictionaries.asp)
 
+## 8 Ficheros
+
+https://docs.python.org/3/library/os.html
+
+[Documentación de Python sobre ficheros](https://docs.python.org/3/library/pathlib.html)
+
+https://docs.python.org/3/library/shutil.html
+
 ## 12  - WEB
 
 ### Flask 

@@ -16,6 +16,13 @@ if sys.version
 >>> utime.localtime(utime.time()+3600) # Sumamos la hora para tiempo localtime
 
 
+### Conversión de Epoch a fecha
+
+
+Donde hemos usado la función time.ctime para convertir el formato de fecha Epoch (segundos desde el 1 de enero de 1970)que se usa en el sistema a un formato más legible
+
+time.ctime(epocs)
+
 ## ¿Qué versión de micropython tengo instalada?
 
 Cuando arranca la placa aparece en la descripción. Podemos provocar un reset con ctrl+D
