@@ -1,8 +1,3 @@
-## Exploración recursiva de directorios
-
-Con lo aprendido vamos a hacer un programa que navegue recursivamente un directorio mostrando información del ficheros que encuentre y entrando en todos los subdirectorios para explorarlo
-
-```python
 import os
 
 listaDirectorios = ['./Descargas']
@@ -24,5 +19,5 @@ while len(listaDirectorios) > 0:
     directorio = listaDirectorios.pop()
     exploraDir(directorio)
     
-```
-
+    
+        

@@ -139,6 +139,22 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					7.9.IndicacionTiposColecciones.md \
 					7.A.EjecutandoDsdConsola.md					
 
+8:
+	pandoc --latex-engine=xelatex   \
+					-V papersize:a4paper    \
+					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
+					-o  $(S8)  \
+					Cabecera.md        \
+					Cabecera_latex.md \
+					8.0.Ficheros.md \
+					8.1.0.AdministracionFicheros.md \
+					8.1.1.ExploracionRecursivaDirectorios.md \
+					8.2.0.LecturaFicheros.md \
+					8.2.1.WordCounter.md \
+					8.3.0.EscrituraFicheros.md \
+					8.3.1.Juego20PreguntasGuardar.md
+
 CB:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
@@ -191,5 +207,6 @@ push:
 	git commit -m "update" $(S2);
 	git commit -m "update" $(S1);
 	git push;
+
 
 
