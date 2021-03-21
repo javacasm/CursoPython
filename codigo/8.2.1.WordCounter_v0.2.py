@@ -21,7 +21,7 @@ def fileWordCounter(nombre_fichero):
 
 
 print('Revisando directorio '+os.getcwd())
-print('Fichero;lineas;palabras;caracteres:')
+print('Fichero;líneas;palabras;caracteres;')
 for fichero in os.listdir():
     try:
         if os.path.isfile(fichero) and  fichero.endswith('.py'):
