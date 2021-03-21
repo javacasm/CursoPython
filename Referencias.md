@@ -44,6 +44,20 @@ https://docs.python.org/3/library/os.html
 
 https://docs.python.org/3/library/shutil.html
 
+## 9 Objetos y clases
+
+https://aprendepython.es/modularity/oop/
+
+https://plataforma.josedomingo.org/pledin/cursos/python3/curso/u50/
+
+https://www.w3schools.com/python/python_classes.asp
+
+Herencia
+
+https://realpython.com/python-super/
+https://www.w3schools.com/python/python_inheritance.asp
+
+
 ## 12  - WEB
 
 ### Flask 

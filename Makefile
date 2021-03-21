@@ -164,6 +164,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					Cabecera.md        \
 					Cabecera_latex.md \
 					9.0.ClasesYobjetos.md \
+					9.1.ClasesPython.md \
 					9.3.0.Herencia.md \
 					9.3.1.EjemploSencilloOO.md \
 					9.3.2.Juego20Preguntas_OO.md
@@ -225,3 +226,4 @@ CB:
 					Cabecera.md        \
 					Cabecera_latex.md \
 					$(FCB)
+
