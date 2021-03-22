@@ -1,8 +1,8 @@
-# Tema 2 - Primeros Ejemplos
+# Tema 9 - Clases y Programación Orientada a Objetos (POO)
 
 ## Objetivos
-
-* Creación de ficheros de código
-* Conocer las normas de escritura de código en Python: formato, comentarios, ...
-* Aprender a usar de la consola
-* Conocer el IDE Thonny
+ 
+* Qué es una clase. 
+* OOP:Paradigma de programación orientada a objetos
+* Herencia
+* Clases en Python y su utilidad

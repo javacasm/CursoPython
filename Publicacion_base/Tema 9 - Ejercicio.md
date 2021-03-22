@@ -1,8 +1,8 @@
-# Tema  - Ejercicio -  
+# Tema 9 - Ejercicio -  Clases y Programación Orientada a Objetos (POO)
 
-El objetivo de este Tema  es 
+El objetivo de este Tema 9 es aprender a utilizar clases y objetos
 
 
-Como ejercicio para este tema te propongo que hagas un programa sencillo que 
+Como ejercicio para este tema te propongo que hagas un programa sencillo en el que uses clases para modelar el problema.
 
-Haz una captura de la pantalla y entrégala.
+Incluye el código en un archivo zip para enviarlo.
