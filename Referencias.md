@@ -57,6 +57,43 @@ Herencia
 https://realpython.com/python-super/
 https://www.w3schools.com/python/python_inheritance.asp
 
+## 10 - Modulos
+
+
+### 10.5. Jupyter
+
+
+Documentación https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+
+
+[3.0 release](https://blog.jupyter.org/jupyterlab-3-0-is-out-4f58385e25bb)
+
+
+#### Pandas
+
+[Ejercicios sobre Pandas](https://pynative.com/python-pandas-exercise/)
+
+https://pandas.pydata.org/pandas-docs/version/0.17.0/10min.html
+
+https://www.edureka.co/blog/python-pandas-tutorial/
+
+https://realpython.com/pandas-sort-python/
+
+https://realpython.com/pandas-plot-python/
+
+https://github.com/ajcr/100-pandas-puzzles
+
+### matplotlib
+
+https://www.edureka.co/blog/python-matplotlib-tutorial/
+
+https://matplotlib.org/3.1.1/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py
+
+Leyenda https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html
+
+
+[Ejercicios sobre Gráficos con matPlotLib](https://pynative.com/python-matplotlib-exercise/)
+
 
 ## 12  - WEB
 
