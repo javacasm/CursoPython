@@ -18,21 +18,6 @@ S12 = "Tema 12 Servidores y sevicios Web.docx"
 
 all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 
-1bis:
-	pandoc --latex-engine=xelatex   \
-					-V papersize:a4paper    \
-					--template=./LaTeX_ES.latex    \
-					--reference-doc=plantilla.docx \
-					-o  'prueba_'$(S1)  \
-					Cabecera.md        \
-					Cabecera_latex.md \
-					"0.0.0.SobreElCurso.md" \
-					"0.1.Introduccion.md" \
-					"0.2.ApendiceCompilados_vs_Interpretados.md" \
-					"1.1.0.Entornos.md" \
-					"1.1.3.Thonny.md" \
-					"1.1.8.IntalacionConsola.md" 
-
 1:
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
@@ -179,17 +164,15 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					Cabecera.md        \
 					Cabecera_latex.md \
 					10.0.ModulosLibrerias.md \
-					10.1.LibreriaEstandar.md \
+					10.1.0.LibreriaEstandar.md \
+					10.1.6.Aleatorio.md \
+					10.1.7.TrabajandoFechas.md \
 					10.3.Instalacionpip.md \
 					10.4.BotTelegram.md \
 					10.5.0.Jupyter.md \
 					10.5.1.RepresentacionDatos.md \
-					10.5.Comparativa_tiempos.md \
-					10.5.numpy_v2.md \
-					10.6.Aleatorio.md \
-					10.6.Espeak.md \
-					10.7.0.TrabajandoFechas.md \
-					10.7.SpechToText.md
+					10.6.Espeak.md
+
 
 11:
 	pandoc --latex-engine=xelatex \
@@ -226,4 +209,5 @@ CB:
 					Cabecera.md        \
 					Cabecera_latex.md \
 					$(FCB)
+
 
