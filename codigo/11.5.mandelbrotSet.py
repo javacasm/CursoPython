@@ -6,7 +6,7 @@ height = 1200//2
 max_iteracion = 220
 factor_color = 220 // max_iteracion
 
-RED   = (255,   0,   0)
+ROJO   = (255,   0,   0)
 
 x0Min = -2.1
 y0Min = -1.2
@@ -88,74 +88,74 @@ def refrescaPantalla():
     screen.blit(fractal, (0,0))
     pygame.display.flip()
 
-init()
-repintaZona()
-'''
-drawMandelbrot(0,0,2,2)
-drawMandelbrot(0,1,2,2)
-drawMandelbrot(1,0,2,2)
-drawMandelbrot(1,1,2,2)
-'''
-running = True
-bDrawRect = False
-rectangle_draging = False
-rectangle = pygame.Rect(0,0,0,0)
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                running = False
-            elif event.key == pygame.K_s:  # guardamos las coordenadas actuales
-                fichero = 'coordenas'+time.strftime('%Y%m%d-%H%M%S')+'.txt'
-                f = open(fichero,'wt')
-                str = f'x0Min:{x0Min}\n' + f'y0Min:{y0Min}\n' + \
-                      f'x0Max:{x0Max}\n' + f'y0Max:{y0Max}\n'
-                f.write(str)
-                f.close()
-                print(f'Datos guardados en {fichero}')
-            elif event.key == pygame.K_i:  # guardamos la imagen a fichero
-                fichero = 'imagen'+time.strftime('%Y%m%d-%H%M%S')+'.png'
-                pygame.image.save(screen,fichero)
-                print(f'Salvada imagen a {fichero}')
-            elif event.key == pygame.K_r:  # volvemos al zoom original
-                resetView()
-                repintaZona()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                if rectangle_draging == False:
-                    rectangle.x,rectangle.y = event.pos
-                    rectangle_draging = True
-        elif event.type == pygame.MOUSEBUTTONUP:
-            if event.button == 1:            
-                rectangle_draging = False
-                # calculamos el rectangulos en coordenadas de pantlla
-                x1,y1 = event.pos
-                rectangle.width   = x1 - rectangle.x
-                rectangle.height  = y1 - rectangle.y
-                # guardamos los valores antiguos
-                x0MinOld, y0MinOld = x0Min,y0Min
-                # calculamos la nuevas coordenadas a dibujar
-                x0Min = rectangle.x * fx0 + x0MinOld
-                y0Min = rectangle.y * fy0 + y0MinOld
-                x0Max = (rectangle.x + rectangle.width)  * fx0 + x0MinOld
-                y0Max = (rectangle.y + rectangle.height) * fy0 + y0MinOld
-                # repintamos
-                repintaZona()
-                refrescaPantalla()
-                bDrawRect = False
+def main():
 
-        elif event.type == pygame.MOUSEMOTION:
-            if rectangle_draging:
-                bDrawRect = True
-                x1,y1 = event.pos
-                rectangle.width   = x1 - rectangle.x
-                rectangle.height  = y1 - rectangle.y
-                
-    if bDrawRect:
-        screen.blit(fractal, (0,0))
-        pygame.draw.rect(screen, RED, rectangle,width=1)        
-        pygame.display.flip()
-        
-pygame.quit()
+    init()
+    repintaZona()
+
+    running = True
+    bDrawRect = False
+    rectangle_draging = False
+    rectangle = pygame.Rect(0,0,0,0)
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                elif event.key == pygame.K_s:  # guardamos las coordenadas actuales
+                    fichero = 'coordenas'+time.strftime('%Y%m%d-%H%M%S')+'.txt'
+                    f = open(fichero,'wt')
+                    str = f'x0Min:{x0Min}\n' + f'y0Min:{y0Min}\n' + \
+                        f'x0Max:{x0Max}\n' + f'y0Max:{y0Max}\n'
+                    f.write(str)
+                    f.close()
+                    print(f'Datos guardados en {fichero}')
+                elif event.key == pygame.K_i:  # guardamos la imagen a fichero
+                    fichero = 'imagen'+time.strftime('%Y%m%d-%H%M%S')+'.png'
+                    pygame.image.save(screen,fichero)
+                    print(f'Salvada imagen a {fichero}')
+                elif event.key == pygame.K_r:  # volvemos al zoom original
+                    resetView()
+                    repintaZona()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if rectangle_draging == False:
+                        rectangle.x,rectangle.y = event.pos
+                        rectangle_draging = True
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 1:            
+                    rectangle_draging = False
+                    # calculamos el rectangulos en coordenadas de pantlla
+                    x1,y1 = event.pos
+                    rectangle.width   = x1 - rectangle.x
+                    rectangle.height  = y1 - rectangle.y
+                    # guardamos los valores antiguos
+                    x0MinOld, y0MinOld = x0Min,y0Min
+                    # calculamos la nuevas coordenadas a dibujar
+                    x0Min = rectangle.x * fx0 + x0MinOld
+                    y0Min = rectangle.y * fy0 + y0MinOld
+                    x0Max = (rectangle.x + rectangle.width)  * fx0 + x0MinOld
+                    y0Max = (rectangle.y + rectangle.height) * fy0 + y0MinOld
+                    # repintamos
+                    repintaZona()
+                    refrescaPantalla()
+                    bDrawRect = False
+
+            elif event.type == pygame.MOUSEMOTION:
+                if rectangle_draging:
+                    bDrawRect = True
+                    x1,y1 = event.pos
+                    rectangle.width   = x1 - rectangle.x
+                    rectangle.height  = y1 - rectangle.y
+                    
+        if bDrawRect:
+            screen.blit(fractal, (0,0))
+            pygame.draw.rect(screen, ROJO, rectangle,width = 1) 
+            pygame.display.flip()
+            
+    pygame.quit()
+
+if __name__ == '__main__':
+    main()
