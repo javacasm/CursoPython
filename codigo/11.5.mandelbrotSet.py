@@ -1,3 +1,9 @@
+'''
+Dibujo del conjunto de Mandelbrot
+CC by SA @javacasm
+Marzo 2021
+'''
+
 import pygame
 import time
 
