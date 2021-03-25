@@ -59,6 +59,12 @@ https://www.w3schools.com/python/python_inheritance.asp
 
 ## 10 - Modulos
 
+https://realpython.com/python-modules-packages/
+
+https://aprendepython.es/modularity/modules/
+
+https://www.w3schools.com/python/python_modules.asp
+
 
 ### 10.5. Jupyter
 

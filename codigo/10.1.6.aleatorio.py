@@ -1,12 +1,3 @@
-https://docs.python.org/3/library/random.html
-
-min <= randint(min,max) <= max
-
-Ejemplo
-Generador de password https://projects.raspberrypi.org/en/projects/password-generator/5
-
-
-
 from random import choice, sample, randint
 colores = ('rojo', 'verde', 'azul', 'blanco', 'negro', 'amarillo')
 
