@@ -211,3 +211,22 @@ CB:
 					$(FCB)
 
 
+10.0.ModulosLibrerias.md
+10.1.0.LibreriaEstandar.md
+10.1.1.sys.md
+10.1.2.math.md
+10.1.4.zip.md
+10.1.6.Aleatorio.md
+10.1.7.TrabajandoFechas.md
+10.3.Instalacionpip.md
+10.4.BotTelegram.md
+10.5.0.Jupyter.md
+10.5.1.RepresentacionDatos.md
+10.5.2.Jupy_ProbabilidadCumpleaños_v2.md
+10.5.2.Pandas_v2.md
+10.5.Comparativa_tiempos_v2.md
+10.5.Cumpleaños_v2.ipynb
+10.5.numpy_v2.md
+10.6.Espeak.md
+10.7.SpechToText_v2.md
+10.8.pdf_v2.md

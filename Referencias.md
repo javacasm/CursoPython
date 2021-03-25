@@ -65,6 +65,7 @@ https://aprendepython.es/modularity/modules/
 
 https://www.w3schools.com/python/python_modules.asp
 
+https://realpython.com/working-with-files-in-python/#archiving
 
 ### 10.5. Jupyter
 
