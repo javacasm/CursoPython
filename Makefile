@@ -187,8 +187,10 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					Cabecera_latex.md \
 					11.0.pyGame.md \
 					11.2.JuegoVida.md \
-					11.3.PGZero.md \
-					11.6.Memory.md					
+					11.6.Memory.md	\
+					11.5.Mandelbrot.md \
+					11.10.CalculandoPi.md
+						
 
 12:
 	pandoc --latex-engine=xelatex \
@@ -212,6 +214,5 @@ CB:
 					Cabecera.md        \
 					Cabecera_latex.md \
 					$(FCB)
-
 
 
