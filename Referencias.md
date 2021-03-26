@@ -67,6 +67,10 @@ https://www.w3schools.com/python/python_modules.asp
 
 https://realpython.com/working-with-files-in-python/#archiving
 
+### 10.1 Pip
+
+[Otros instaladores](https://www.datacamp.com/community/tutorials/pip-python-package-manager)
+
 ### 10.5. Jupyter
 
 
