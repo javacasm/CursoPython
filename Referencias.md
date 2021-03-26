@@ -80,6 +80,12 @@ Documentación https://jupyterlab.readthedocs.io/en/stable/getting_started/insta
 [3.0 release](https://blog.jupyter.org/jupyterlab-3-0-is-out-4f58385e25bb)
 
 
+## 11.1 Memory
+
+# Otra opción https://inventwithpython.com/pygame/chapter3.html
+# https://stackoverflow.com/questions/59121989/blitting-images-onto-a-tile-that-is-part-of-a-grid-in-pygame
+
+
 #### Pandas
 
 [Ejercicios sobre Pandas](https://pynative.com/python-pandas-exercise/)
