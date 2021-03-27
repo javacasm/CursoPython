@@ -70,19 +70,19 @@ while running:
                 running == False
 
             if event.key == pygame.K_LEFT:
-                print('Movmiento izda')
+                print('Movimiento izda')
                 x -= vel
 
             if event.key == pygame.K_RIGHT:
-                print('Movmiento drcha')                
+                print('Movimiento drcha')                
                 x += vel
 
             if event.key == pygame.K_UP:
-                print('Movmiento arriba')
+                print('Movimiento arriba')
                 y -= vel
 
             if  event.key == pygame.K_DOWN:
-                print('Movmiento abajo')        
+                print('Movimiento abajo')        
                 y += vel
 
     screen.fill(black) # ponemos el fondo negro

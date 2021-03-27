@@ -133,7 +133,7 @@ def main():
             elif event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:            
                     rectangle_draging = False
-                    # calculamos el rectangulos en coordenadas de pantlla
+                    # calculamos el rectángulo en coordenadas de pantalla
                     x1,y1 = event.pos
                     rectangle.width   = x1 - rectangle.x
                     rectangle.height  = y1 - rectangle.y
