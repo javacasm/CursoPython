@@ -95,7 +95,7 @@ def refrescaPantalla():
     pygame.display.flip()
 
 def main():
-
+    global x0Min, x0Max, y0Min, y0Max
     init()
     repintaZona()
 
