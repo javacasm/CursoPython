@@ -1,7 +1,7 @@
 '''
-Dibujo del conjunto de Mandelbrot
+Dibujo del atractor de Lorenz 
 CC by SA @javacasm
-Marzo 2021
+Abrilo 2021
 '''
 
 import pygame
@@ -10,7 +10,7 @@ import numpy as np
 import math
 
 width = 1600 # //2
-height = 1200 # //2
+height = 800 # //2
 BLACK = (0, 0, 0)
 LIGHTGREY = (100, 100, 100)
 GREY = (160, 160, 160)
@@ -36,7 +36,7 @@ def convert3DTo2D(x,y,z):
     global sintheta, costheta, coordinatesAxes
     coordinatesAxes = None
     x2d = x * costheta - y * sintheta + width // 2
-    y2d = x * sintheta + y * costheta - z + height // 2
+    y2d = x * sintheta + y * costheta - z + height * 3 // 4
     return [int(x2d),int(y2d)]
 
 def convert3DTo2DIsometric(x,y,z):
@@ -100,7 +100,7 @@ def createLorenz():
 
 def drawLorenz():
     global xs,ys,zs
-    fx=10
+    fx=15
     fy=fx
     fz = 5
     screen.fill(BLACK)
