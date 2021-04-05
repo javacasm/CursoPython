@@ -1,16 +1,18 @@
 '''
-Dibujo del atractor de Lorenz 
+Lorenz's atractor
 CC by SA @javacasm
-Abrilo 2021
+April 2021
 '''
 
+from PIL import Image
 import pygame
 import time
 import numpy as np
 import math
+import glob
 
-width = 1600 # //2
-height = 800 # //2
+width = 1200 # 1600//2
+height = 1000 # //2
 BLACK = (0, 0, 0)
 LIGHTGREY = (100, 100, 100)
 GREY = (160, 160, 160)
@@ -18,13 +20,15 @@ WHITE = (255,255,255)
 
 num_steps = 10000
 
-theta = math.pi/4
+bSaveImages = True
+
+theta = 0 # math.pi/4
 
 def init():
     global screen
     pygame.init()
     screen = pygame.display.set_mode((width,height))
-    pygame.display.set_caption("Mandelbrot Set")
+    pygame.display.set_caption("Lorenz's atractor")
 
 def calculateRotMatrix():
     global sintheta, costheta, theta
@@ -97,9 +101,9 @@ def createLorenz():
         ys[i + 1] = ys[i] + (y_dot * dt)
         zs[i + 1] = zs[i] + (z_dot * dt)
 
-
+counter = 0
 def drawLorenz():
-    global xs,ys,zs
+    global xs,ys,zs, counter
     fx=15
     fy=fx
     fz = 5
@@ -108,10 +112,16 @@ def drawLorenz():
     for i in range(num_steps):
         iso = convert3DTo2D(int(xs[i]*fx),int(ys[i]*fy),int(zs[i]*fz))
         screen.set_at((iso[0],iso[1]),(0x10,0xf0,0xf0))
-    pygame.display.flip() 
+    pygame.display.flip()
+    if bSaveImages:
+        fichero = f'lorenz{counter:03d}.png'
+        print(f'{fichero} saved')
+        counter += 1
+        pygame.image.save(screen,fichero)
 
 def main():
-    global theta
+    global theta, bSaveImages
+    
     init()
     
     createLorenz()
@@ -123,7 +133,23 @@ def main():
                 running = False
         calculateRotMatrix()
         drawLorenz()
-        theta += 0.025
+        theta += 0.1
+        if bSaveImages and theta >= math.pi * 2:
+            frames = []
+            imgs = glob.glob('lorenz*.png')
+            imgs.sort()
+            print(imgs)
+            for i in imgs:
+                new_frame = Image.open(i)
+                frames.append(new_frame)
+
+            # Save into a GIF file that loops forever
+            frames[0].save('lorenz.gif', format='GIF',
+                           append_images=frames[1:],
+                           save_all=True,
+                           duration=100, loop=1000)
+            bSaveImages = False
+            
     pygame.quit()
 
 if __name__ == '__main__':
