@@ -18,9 +18,9 @@ LIGHTGREY = (100, 100, 100)
 GREY = (160, 160, 160)
 WHITE = (255,255,255)
 
-num_steps = 10000
+num_steps = 5000
 
-bSaveImages = True
+bSaveImages = False
 
 theta = 0 # math.pi/4
 
@@ -131,9 +131,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_s:
+                    bSaveImages = True
+                    theta = 0
         calculateRotMatrix()
         drawLorenz()
         theta += 0.1
+ 
         if bSaveImages and theta >= math.pi * 2:
             frames = []
             imgs = glob.glob('lorenz*.png')
