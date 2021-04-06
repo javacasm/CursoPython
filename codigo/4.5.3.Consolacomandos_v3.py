@@ -4,7 +4,7 @@ if usuario == 'pepe' or usuario == 'admin':
     print('Bienvenido ' + usuario)
     comando = input('Introduzca el comando: ')
     if comando == 'Apagar':
-        confirmacion = input('Confirme que desea apagar responidiendo "Si": ' )
+        confirmacion = input('Confirme que desea apagar respondiendo "Si": ' )
         if confirmacion == 'Si':
             print('Apagando el equipo...')
         else:
