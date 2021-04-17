@@ -1,5 +1,5 @@
 ## Generando gif
-
+# From https://pythonprogramming.altervista.org/python-draws-in-colors-app-to-draw-with-pygame/?doing_wp_cron=1617650069.8141829967498779296875
 Usamos PIL
 
 ```python
