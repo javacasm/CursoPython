@@ -11,10 +11,12 @@
 ```python
 import PySimpleGUI as sg
 
-event, values = sg.Window('Login Window',
-                  [[sg.T('Enter your Login ID'), sg.In(key='-ID-')],
+event, values = sg.Window('Ventana para pedir un valor al usuario',
+                  [[sg.T('Introduzca un valor'), sg.In(key='-valor1-')],
                   [sg.B('OK'), sg.B('Cancel') ]]).read(close=True)
 
-login_id = values['-ID-']
+login_id = values['-valor1-']
 
 ```
+
+
