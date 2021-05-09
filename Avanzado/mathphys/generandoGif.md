@@ -36,3 +36,23 @@ frames[0].save('lorenz.gif', format='GIF',
                 save_all=True,
                 duration=100, loop=1000)
 ```
+
+## Usando imageio
+
+pip3 install imageio
+
+```python
+urlBase = 'https://pbs.twimg.com/media/{}?format=jpg&name=4096x4096'
+
+# SpaceX SN10 awesome pictures
+id_images=('EvmM_t7WgAMgASv','EvmM_t-XIAI4MWs','EvqxipXXMA8vE35','EvqxlsXXYAUuTEi')
+
+from urllib.request import urlretrieve
+for id in id_images:
+    urlretrieve(urlBase.format(id),id)
+
+import imageio
+imagenes = [imageio.imread(fichero) for fichero in id_images]
+imageio.mimsave('SN10.gif',imagenes,duration = 10)
+```
+
