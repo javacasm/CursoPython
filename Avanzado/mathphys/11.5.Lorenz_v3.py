@@ -4,7 +4,7 @@ CC by SA @javacasm
 April 2021
 '''
 
-v = '2.1'
+v = '2.3'
 
 from PIL import Image
 import pygame
@@ -26,7 +26,7 @@ RED = (200,50,50)
 GREEN = (50,200,50)
 BLUE = (50,50,200)
 colorBack = (0x70,0x70,0x70)
-colorFore = (0x10,0xf0,0xf0)
+colorFore = (0x30,0xf0,0xf0)
 
 # points number 
 N_Puntos = 2
@@ -176,7 +176,7 @@ def addIntermediatePoints():
         y = ys_old[i]
         z = zs_old[i]
         mod = math.sqrt((x_old - x)**2 + (y_old - y)**2 + (z_old - z)**2 )
-        if mod > 10:
+        if mod > 2:
             xs.append((x_old + x)/2)
             ys.append((y_old + y)/2)
             zs.append((z_old + z)/2)
@@ -211,24 +211,41 @@ def drawAxis():
     screen.blit(imgY, ejeY)
     screen.blit(imgZ, ejeZ)
     
+    
+imgHelp = None
+
 def drawLorenz():
-    global xs,ys,zs,xs_b,ys_b,zs_b, animCounter, N_Puntos, font, t, lentgh
+    global xs,ys,zs,xs_b,ys_b,zs_b, animCounter, N_Puntos, font, t, lentgh, imgHelp
     fx = 15
     fy = fx
     fz = 5
-    screen.fill(BLACK)
-    drawAxis()
-    for i in range(N_Puntos):
+    
+    screen.fill(BLACK) # Fondo negro
+    
+    drawAxis() # Dibujamos los ejes
+    
+    for i in range(N_Puntos):  # Dibujamos los puntos de la evolución
         iso = convert3DTo2D(int(xs[i]*fx),int(ys[i]*fy),int(zs[i]*fz))
         screen.set_at(iso,colorFore)
+        screen.set_at((iso[0]+1,iso[1]),colorFore)
+        screen.set_at((iso[0]+1,iso[1]+1),colorFore)
+        screen.set_at((iso[0],iso[1]+1),colorFore)
         
-    for i in range(num_back_dots):
+        
+    for i in range(num_back_dots): # Dibujamos los puntos del fondo
         iso = convert3DTo2D(int(xs_b[i]*fx),int(ys_b[i]*fy),int(zs_b[i]*fz))
         screen.set_at(iso,colorBack)
 
+    # creamos la imagen del texto
     img = font.render(f'N:{N_Puntos} t = {t:5.2f} length = {length:10.2f}' , True, WHITE)
-    screen.blit(img, (20, 20))
-    pygame.display.flip()
+    screen.blit(img, (20, 20)) # lo copiamos a la pantalla
+    
+    if imgHelp == None:
+        imgHelp = font.render(f'Espacio: pausa   Q: sale', True, WHITE)
+    screen.blit(imgHelp,(20,height-40))
+    
+    pygame.display.flip() # actulizamos a la pantalla
+    
     if bSaveImages:
         fichero = f'lorenz{animCounter:03d}.png'
         print(f'{fichero} saved')
@@ -245,6 +262,7 @@ def main():
     createLorenz()
    
     running = True
+    paused = False
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -255,12 +273,21 @@ def main():
                     theta = 0
                 elif event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
                     running = False
+                elif event.key == pygame.K_SPACE:
+                    paused = not paused
+                    
         calculateRotMatrix()
-        nextLorenzStep()
-        drawLorenz()
+        
+        if not paused:
+            nextLorenzStep()
+        
         theta += 0.01
+            
+            
+        drawLorenz()
+        
  
-        if bSaveImages and theta >= math.pi * 2:
+        if not paused and bSaveImages and theta >= math.pi * 2:
             frames = []
             imgs = glob.glob('lorenz*.png')
             imgs.sort()
