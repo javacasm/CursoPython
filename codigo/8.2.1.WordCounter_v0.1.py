@@ -8,7 +8,7 @@ numero_lineas = 0
 numero_palabras = 0
 numero_caracteres = 0
 
-for lineaRaw in file:
+for lineaRaw in file: # va a recuperar línea a línea el contenido del fichero
     linea = lineaRaw.strip('\n') # no contaremos el fin de línea como caracter 
 
     palabras = linea.split() # Lista de palabras

@@ -5,9 +5,11 @@ import statistics
 Based on:
     https://ipadbooks.contrataweb.com/2020/11/03/conocer-las-tarifas-de-luz-cada-hora-script-en-python/
     https://rpubs.com/AlbertoFuente/408243
-    
+    Cómo ver tu consumo https://www.xataka.com/basics/como-acceder-a-datos-nuestro-contador-luz-internet
     updated by @javacasm
-    
+
+    Puedes comprobar los resultados con https://tarifaluzhora.es
+
     Licencese CC by SA
 '''
 v = '0.7'
@@ -16,7 +18,8 @@ v = '0.7'
 email to consultasios@ree.es
 subject: Personal Token Request
 '''
-TOKEN = "PON_AQUI_TU_TOKEN"
+# TOKEN = "PON_AQUI_TU_TOKEN"
+TOKEN = "d423bf1d444dc1c935b6834c4486d868c90e2ad730ef986610ce5246fd7fc062"
 
 # Api: https://api.esios.ree.es/
 urlIndicadores = 'https://api.esios.ree.es/indicators'
