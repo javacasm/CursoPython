@@ -19,7 +19,11 @@ pip3 install git+https://github.com/alberanid/imdbpy
 
 ## Ejemplos
 
+[doc](https://github.com/alberanid/imdbpy/blob/master/docs/usage/query.rst)
+
 ### Ejemplo de películas
+
+[doc - movie](https://github.com/alberanid/imdbpy/blob/master/docs/usage/movie.rst)
 
 ```python
 import imdb 
