@@ -12,7 +12,7 @@ Based on:
 
     Licencese CC by SA
 '''
-v = '0.7'
+v = '0.8'
 
 '''
 email to consultasios@ree.es
@@ -23,6 +23,8 @@ TOKEN = "d423bf1d444dc1c935b6834c4486d868c90e2ad730ef986610ce5246fd7fc062"
 
 # Api: https://api.esios.ree.es/
 urlIndicadores = 'https://api.esios.ree.es/indicators'
+
+urlDatosFechas = 'https://api.esios.ree.es/indicators/%s?start_date=%sT22:00:00Z&end_date=%sT21:00:00Z&time_trunc=hour'
 
 urlPrecios_20TD = 'https://api.esios.ree.es/indicators/10391'
 
@@ -42,11 +44,11 @@ def getRequest(url,headers):
         json_data = json.loads(response.text)
         return  json_data
     else:
-        if responsePrecios.status_code in errorCodesMeaning:
-            print(errorCodesMeaning[responsePrecios.status_code])
+        if response.status_code in errorCodesMeaning:
+            print(errorCodesMeaning[response.status_code])
         else:
-            print(f'Response.status: {responsePrecios.status_code}')
-            print(f'Response.text: {responsePrecios.text}')        
+            print(f'Response.status: {response.status_code}')
+            print(f'Response.text: {response.text}')        
         return None
     
 '''   
@@ -64,7 +66,7 @@ json_precios = getRequest(urlPrecios_20TD, headers)
 
 geoname = 'Península' 
 
-if json_precios == None:
+if json_precios != None:
     valores = json_precios['indicator']['values']
     
     precios ={}
@@ -74,21 +76,16 @@ if json_precios == None:
             fecha = strFecha[:10] +' ' + strFecha[11:13]
             precio = valor['value']/1000
             precios[fecha]= precio
-            print(f'{fecha}  {precio}')
-    '''
-    hora = 0
-    for precio in precios:
-        print("%s horas - %s €" %(str(hora).zfill(2), str(round(precio/1000, 4))))
-        hora += 1
-
-    if len(precios) > 0:
-        valor_min = min(precios)
-        valor_max = max(precios)
-        valor_med = round(statistics.mean(precios),2)
-        
-        print("Precio mínimo: %s" % str(valor_min/1000))
-        print("Precio máximo: %s" % str(valor_max/1000))
-        print("Precio medio: %s" % str(valor_med/1000))
-    '''
-
+            print(f'{fecha}  {precio:.4f}')
     
+    # vamos a calcular estadísticas de los datos
+
+    min_precio = min(precios.values())
+    min_date =  min(precios,key=precios.get) # Otra forma [date for date in precios if precios[date] == min_precio][0]
+    
+    max_precio = max(precios.values())
+    max_date = max(precios,key=precios.get) # Otra forma [date for date in precios if precios[date] == max_precio][0]
+
+    print(f"Precio mínimo: {min_date} - {min_precio:.4f}")
+    print(f"Precio máximo: {max_date} - {max_precio:.4f}")
+
