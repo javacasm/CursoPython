@@ -8,7 +8,7 @@ class Animal():
         return ''
     
     def __str__(self):
-        return f'me llamo {animal.nombre} tengo {animal.numeroPatas} patas y sueno asi: {animal.habla()}'
+        return f'me llamo {self.nombre} tengo {self.numeroPatas} patas y sueno asi: {self.habla()}'
         
 
 class Gato(Animal):
