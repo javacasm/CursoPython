@@ -10,7 +10,7 @@ if camlist != None:
     print(f'Hay {len(camlist)}')
     for cam in camlist:
         print(cam)
-    size = (640,480)
+    size =  (1280,960) # (1280,960), (1280,720)
     cam = pygame.camera.Camera(camlist[2],size)
     cam.start()
     image = cam.get_image()
