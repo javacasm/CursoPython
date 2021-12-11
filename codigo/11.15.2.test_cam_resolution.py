@@ -1,3 +1,4 @@
+# from https://www.learnpythonwithrune.org/find-all-possible-webcam-resolutions-with-opencv-in-python/
 import pandas as pd
 import cv2
 
