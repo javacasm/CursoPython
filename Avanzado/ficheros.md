@@ -6,6 +6,8 @@ Serializacion de objetos
 
 json
 
+
+
 ## numeros a bytes y bits
 
 >>> n = 23
