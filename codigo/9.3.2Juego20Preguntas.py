@@ -140,7 +140,7 @@ def guardaElementos():
     global elementos    
     if ficheroDatos in os.listdir(): # si existe lo renombramos
         strTime = time.strftime('%Y-%m-%d_%H:%M:%S',time.localtime())
-        os.rename(ficheroDatos,ficheroDatos+strTime+'.txt')
+        os.replace(ficheroDatos,ficheroDatos+strTime+'.txt')
     f = open(ficheroDatos ,'wt')
     f.write("#id:text:Si:No\n")
     elementos_ordenados = sorted(elementos)

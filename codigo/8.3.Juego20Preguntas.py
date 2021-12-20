@@ -55,7 +55,7 @@ def dumpElementos():
     contador = 0
     
     if ficheroDatos in os.listdir(): # si existe lo renombramos
-        os.rename(ficheroDatos,ficheroDatos+'.old')
+        os.replace(ficheroDatos,ficheroDatos+'.old')
     f = open(ficheroDatos,'w')
     f.write("#id:text:Si:No")
     for texto,idSi,idNo in elementos:

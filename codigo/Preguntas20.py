@@ -206,7 +206,7 @@ class Juego20():
             
         if fichero in os.listdir(): # si existe lo renombramos
             strTime = time.strftime('%Y-%m-%d_%H:%M:%S',time.localtime())
-            os.rename(fichero, fichero + strTime + '.txt')
+            os.replace(fichero, fichero + strTime + '.txt')
         f = open(fichero ,'wt')
         f.write("#id:text:Si:No\n")
         elementos_ordenados = sorted(self.nodos)
