@@ -1,7 +1,7 @@
 import os 
 
 def fileWordCounter(nombre_fichero):
-    file = open(nombre_fichero, "rt")
+    file = open(nombre_fichero, "rt", encoding="utf8")
 
     numero_lineas = 0
     numero_palabras = 0

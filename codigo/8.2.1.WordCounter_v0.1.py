@@ -2,7 +2,7 @@
 
 nombre_fichero = 'codigo/data/el_quijote.txt'
 
-file = open(nombre_fichero, 'rt') # Abrimos el fichero en modo lectura de texto
+file = open(nombre_fichero, 'rt', encoding="utf8") # Abrimos el fichero en modo lectura de texto
 
 numero_lineas = 0
 numero_palabras = 0
