@@ -6,6 +6,8 @@ Sonidos de https://mixkit.co/free-sound-effects/game/
 
 Imagenes de https://stackoverflow.com/questions/59121989/blitting-images-onto-a-tile-that-is-part-of-a-grid-in-pygame
 
+Puedes descargar las imágenes de            
+
 """
 import random, pygame, time, sys
 v = '0.9'
