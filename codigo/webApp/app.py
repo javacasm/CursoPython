@@ -14,6 +14,7 @@ def test():
 
 
 @app.route('/suma',methods = ["GET", "POST"])
+@app.route('/suma/',methods = ["GET", "POST"])
 def suma():
     htmlCode = ""
     if request.method == "POST":
