@@ -4,13 +4,16 @@ CC by SA @javacasm
 Marzo 2021
 '''
 
+v = 0.3
+
 import pygame
 import time
 
-width = 1600//2
-height = 1200//2
-max_iteracion = 220
-factor_color = 220 // max_iteracion
+width = 1600 # //2
+height = 900 # //2
+max_iteracion = 100
+max_color = 200
+factor_color = max_color // max_iteracion
 
 ROJO   = (255,   0,   0)
 
@@ -19,8 +22,13 @@ y0Min = -1.2
 x0Max =  0.8
 y0Max =  1.2
 
+fx0 = 1.0
+fy0 = 1.0
+
 stepX = 1
 stepY = stepX
+
+screen = None
 
 def resetView():
     global  x0Min, y0Min, x0Max, y0Max 
@@ -63,11 +71,12 @@ def creaRangoColor():
     for i in range(max_iteracion+1):
         colores.append(((max_iteracion -i)*factor_color, 0, i * factor_color))
 
-def drawMandelbrot(i0=0,j0=0,stepI=1,stepJ=1,clear = False):
+def drawMandelbrot(i0=0,j0=0,stepI=2,stepJ=2,clear = False):
     global screen,fx0,fy0,x0Min,y0Min
     if clear:
         screen.fill((0,0,0))
-
+    min_color=0
+    max_color=0
     for i in range(i0,width,stepI):
         for j in range(j0,height,stepJ):
             x0 = i*fx0 + x0Min
@@ -80,14 +89,18 @@ def drawMandelbrot(i0=0,j0=0,stepI=1,stepJ=1,clear = False):
             #screen.set_at((i,j), colores[iteracion])
             
 
-        pygame.display.flip()
-        
+        pygame.display.flip()    
 
 def repintaZona():
-    global fractal
+    global fractal,x0Min,x0Max,y0Min,y0Max
     calculateFactors()
     screen.fill((0,0,0))
+    str = f'pos: ({x0Min:2.5f},{x0Max:2.5f}) ({y0Min:2.5f},{y0Max:2.5f})'
+    print(str,end='\r')
     drawMandelbrot()
+    drawMandelbrot(i0=1)
+    drawMandelbrot(j0=1)
+    drawMandelbrot(i0=1,j0=1)
     fractal = screen.copy() 
 
 def refrescaPantalla():
@@ -144,6 +157,7 @@ def main():
                     y0Min = rectangle.y * fy0 + y0MinOld
                     x0Max = (rectangle.x + rectangle.width)  * fx0 + x0MinOld
                     y0Max = (rectangle.y + rectangle.height) * fy0 + y0MinOld
+
                     # repintamos
                     repintaZona()
                     refrescaPantalla()
