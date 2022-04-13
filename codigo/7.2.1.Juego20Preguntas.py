@@ -11,7 +11,7 @@ def getRespuesta (pregunta) :
     Devuelve True para Sí, False para No
     """
     respuesta = input (pregunta)
-    if respuesta == 'dump':
+    if respuesta == 'dump': # Si escribimos 'dump'  como respuesta vuelca por pantalla la estructura del árbol de contenidos
         dumpElementos()
     # Convertimos a minúscula y nos quedamos con la primera letra
     respuestaProcesada = respuesta[0:1].lower() 
@@ -27,7 +27,8 @@ iSinConexion = -1
 
 elementos = [ ['geranio', iSinConexion, iSinConexion] ] # elemento, respuestaSi, respuestaNo
 
-def dumpElementos(): # Lo utilizamos como depuración para ver que funciona
+# muestra por pantalla los contenidos del árbol
+def dumpElementos(): # Lo utilizamos como depuración para ver la estructura del árbol
     contador = 0
     print("id\t\t\ttext\tSi\tNo")
     #for e in elementos:
