@@ -1,0 +1,10 @@
+print('1 - Opción primera')
+print('2 - Opción segunda')
+print('3 - Opción tercera')
+print('4 - Opción cuartaa')
+print('0 - Para salir')
+opcion = input('Seleccione entre estas opciones')
+while opcion not in ('0','1', '2', '3', '4'):
+    print('Opción no válida')
+    opcion = input('Seleccione entre estas opciones')
+print(f'Seleccionada la opción {opcion}')
