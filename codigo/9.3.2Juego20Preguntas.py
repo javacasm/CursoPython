@@ -178,7 +178,8 @@ def main () :
                 nodoActual = nodoActual.nodoSi 
             else : 
                 nodoActual = nodoActual.nodoNo
-        
+        if lastNodo == None: # es la primera vez que se ejecuta
+            lastNodo = nodoActual
         # No hay más preguntas... tenemos la respuesta
         if getRespuesta(f'¿Es un {nodoActual.texto}? ') :  # Hemos acertado
             print('¡¡Acerté!!')
@@ -207,8 +208,8 @@ def main () :
             lastNodo.nodoSi = nuevoPregunta
         elif lastNodo.nodoNo == nodoActual:
             lastNodo.nodoNo = nuevoPregunta
-        else:
-            print('Tenemos un problema') 
+        #else:
+        #    print('Tenemos un problema') 
         guardaElementos()
 
         # Preguntamos si queremos seguir jugando
