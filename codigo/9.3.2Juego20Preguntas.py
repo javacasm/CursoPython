@@ -2,7 +2,7 @@
 # http://openbookproject.net/py4fun/animal/animal.py
 # 
 
-v = '0.9'
+v = '0.9.1'
 
 iTexto = 0
 iRespuestaSi = 1
