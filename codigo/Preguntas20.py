@@ -322,5 +322,5 @@ if __name__ == '__main__':
         try:
             respuesta = input(pregunta + ' ')
             pregunta = juego.updateEstado(respuesta)
-        except:
-            print('bye')
+        except Exception as e :
+            print('bye. Error: '+str(e))
