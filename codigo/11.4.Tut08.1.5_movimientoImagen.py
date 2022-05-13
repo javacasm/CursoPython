@@ -12,8 +12,10 @@ Docs:
 * Eventos https://www.pygame.org/docs/ref/event.html
 * Keys https://www.pygame.org/docs/ref/key.html
 
+* Recursos en https://github.com/javacasm/CursoPython/blob/master/codigo/recursos_11.4.zip?raw=true
+
 CC by SA @javacasm
-Diciembre 2020
+Mayo 2022
 """
 
 import pygame
@@ -85,7 +87,7 @@ while running:
                 print('Movimiento abajo')        
                 y += vel
 
-    screen.fill(cyan) # ponemos el fondo negro
+    screen.fill(cyan) # ponemos el fondo cyan
     screen.blit(miFondo,(0,0))
     screen.blit(miImagen,(x, y)) # después copiamos la imagen
 

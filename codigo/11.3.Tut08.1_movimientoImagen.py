@@ -12,8 +12,10 @@ Docs:
 * Eentos https://www.pygame.org/docs/ref/event.html
 * Keys https://www.pygame.org/docs/ref/key.html
 
+* Recursos en https://github.com/javacasm/CursoPython/blob/master/codigo/recursos_11.4.zip?raw=true
+
 CC by SA @javacasm
-Junio 2020
+Mayo 2022
 """
 
 import pygame
