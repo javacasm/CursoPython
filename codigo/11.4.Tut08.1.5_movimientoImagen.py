@@ -21,8 +21,8 @@ import pygame
 
 # graficos
 
-width = 640
-height = 400
+width = 512
+height = 288
 
 
 # 3 formas de definir los colores
@@ -54,7 +54,7 @@ vel = 1
 
 miImagen = pygame.image.load('./images/python-logo.png') # cargamos la imagen
 
-miFondo = pygame.image.load('./images/fondo.png') # lo cargamos
+miFondo = pygame.image.load('./images/fondo.png').convert_alpha() # lo cargamos
 
 running = True
 
@@ -85,7 +85,7 @@ while running:
                 print('Movimiento abajo')        
                 y += vel
 
-    screen.fill(black) # ponemos el fondo negro
+    screen.fill(cyan) # ponemos el fondo negro
     screen.blit(miFondo,(0,0))
     screen.blit(miImagen,(x, y)) # después copiamos la imagen
 
