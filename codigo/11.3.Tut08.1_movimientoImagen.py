@@ -44,8 +44,6 @@ y = 200
 # velocidad de movimiento
 vel = 1
 
-miImagen = pygame.image.load('./images/python-logo.png')
-
 running = True
 
 while running:
