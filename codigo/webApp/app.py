@@ -34,5 +34,5 @@ def suma():
     return htmlCode
 
 if __name__ == '__main__':
-    app.run(debug = True, host='127.0.0.1') # solo acceso local y puerto 5000
+    app.run(debug = False, host='127.0.0.1') # solo acceso local y puerto 5000
 
