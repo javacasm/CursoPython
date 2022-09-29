@@ -2,7 +2,7 @@
 
 ![Logo Python](./images/python-logo.png)
 
-## Versión 0.99.1
+## Versión 0.99.2
 
 
 
@@ -16,4 +16,4 @@
 ### https://elCacharreo.com
 
 
-## Abril 2021
+## Septiembre 2022
