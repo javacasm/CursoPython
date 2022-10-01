@@ -19,9 +19,10 @@ S12 = "Tema 12 Servidores y sevicios Web.docx"
 all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 
 1:
-	pandoc --latex-engine=xelatex   \
+	pandoc --pdf-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S1)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -37,6 +38,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S2)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -53,6 +55,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S3)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -68,6 +71,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S4)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
@@ -78,6 +82,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 	pandoc --latex-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
+					--reference-doc=plantilla.docx \
 					-o  $(S5)  \
 					Cabecera.md        \
 					Cabecera_latex.md \
