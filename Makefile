@@ -49,7 +49,8 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					"2.4.3.Comentarios.md" \
 					"2.4.DepuracionconThonny.md" \
 					"2.6.EjecucionLineaComandos.md" \
-					"2.8.FixingThonny.md"
+					"2.8.FixingThonny.md" \ 
+					"2.10.InicioColab.md"
 
 3:
 	pandoc --pdf-engine=xelatex   \
@@ -65,7 +66,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					"3.2.ConversionTipos.md" \
 					"3.3.Excepciones.md" \
 					"3.4.OperadoresAritmeticos.md" \
-					"3.6.cadenas.string.md" 
+					"3.6.0.cadenas.string.md" 
 
 4:
 	pandoc --latex-engine=xelatex   \
