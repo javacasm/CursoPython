@@ -18,6 +18,16 @@ S12 = "Tema 12 Servidores y sevicios Web.docx"
 
 all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 
+pandas:
+	pandoc --pdf-engine=xelatex   \
+		-V papersize:a4paper    \
+		--template=./LaTeX_ES.latex    \
+		--reference-doc=plantilla.docx \
+		-o  pandas.docx  \
+		Cabecera.md        \
+		Cabecera_latex.md \
+		10.5.3.Pandas.md
+
 1:
 	pandoc --pdf-engine=xelatex   \
 					-V papersize:a4paper    \
@@ -144,10 +154,11 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					8.2.0.LecturaFicheros.md \
 					8.2.1.WordCounter.md \
 					8.3.0.EscrituraFicheros.md \
-					8.3.1.Juego20PreguntasGuardar.md
+					8.3.1.Juego20PreguntasGuardar.md \
+					8.5.Ficheros_colab.md
 
 9:
-	pandoc --latex-engine=xelatex   \
+	pandoc --pdf-engine=xelatex   \
 					-V papersize:a4paper    \
 					--template=./LaTeX_ES.latex    \
 					--reference-doc=plantilla.docx \
@@ -161,7 +172,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					9.3.2.Juego20Preguntas_OO.md
 
 10:
-	pandoc --latex-engine=xelatex \
+	pandoc --pdf-engine=xelatex \
 					--from=markdown \
 					-V papersize:a4paper \
 					--template=./LaTeX_ES.latex \
@@ -176,7 +187,7 @@ all: 0 1 2 3 4 5 6 7 8 9 10 11 12 CB
 					10.1.4.zip.md \
 					10.1.6.Aleatorio.md \
 					10.1.7.TrabajandoFechas.md \
-					10.3.Instalacionpip.md \
+					10.3.0.Instalacionpip.md \
 					10.4.BotTelegram.md \
 					10.5.0.Jupyter.md \
 					10.5.1.RepresentacionDatos.md \
