@@ -129,13 +129,17 @@ Leyenda https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html
 
 ### Cursos
 
-[The Python Tutorial](https://docs.python.org/3/tutorial/index.html#tutorial-index)
+[Tutoriales de python.og](https://wiki.python.org/moin/SpanishLanguage)
 
 [Curso de Python3 PLEDIN](https://plataforma.josedomingo.org/pledin/cursos/Python3/)
+
+[El libro de Python](https://ellibrodepython.com/)
 
 [Libro JJ - Aprende Python en el siglo XXI](https://github.com/JJ/1line-py)
 
 [Tutorial interactivo de Python](https://snakify.org/es/)
+
+[The Python Tutorial](https://docs.python.org/3/tutorial/index.html#tutorial-index)
 
 ### Cajón de sastre
 
