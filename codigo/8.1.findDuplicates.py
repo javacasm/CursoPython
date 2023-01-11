@@ -2,12 +2,15 @@ import os
 import json
 
 
-v = '0.4'
+v = '0.6.2'
 
-baseDir = '/Volumes/myblock/musica/'
+# baseDir = '/Volumes/myblock/musica/' # Para mac
+
+baseDir = '/media/myBlock/musica/' # Para linux
 
 nombre_fichero_repetidos = baseDir + 'ficherosRepetidos.json'
-nombre_nombre_nombre_fichero_datos = baseDir + 'datos.json'
+nombre_fichero_datos = baseDir + 'datos.json'
+nombre_script_borrado = baseDir + 'rm_duplicados.sh'
 
 listaDirectorios = [baseDir]
 
@@ -59,15 +62,15 @@ def findDuplicates():
         json.dump(ficherosRepetidos, outfile)
 
 
-    with open(nombre_nombre_nombre_fichero_datos, "wt",encoding='utf-8') as outfile:
+    with open(nombre_fichero_datos, "wt",encoding='utf-8') as outfile:
         json.dump(datos, outfile)
 
 
-if os.path.exists(nombre_nombre_nombre_fichero_datos) and os.path.exists(nombre_fichero_repetidos):
+if os.path.exists(nombre_fichero_datos) and os.path.exists(nombre_fichero_repetidos):
     with open(nombre_fichero_repetidos,'rt',encoding='utf-8') as repes:
         ficherosRepetidos = json.load(repes)
     
-    with open(nombre_nombre_nombre_fichero_datos,'rt',encoding='utf-8') as dat:
+    with open(nombre_fichero_datos,'rt',encoding='utf-8') as dat:
         datos = json.load(dat)
 else:
     findDuplicates()
@@ -77,9 +80,32 @@ print(f'Hay datos de {len(datos)} ficheros')
 
 def checkDuplicates():
     global ficherosRepetidos
+    borrables = []
+    espacio_liberar = 0
     for repe,lista_repes in ficherosRepetidos.items():
-        print(f'{repe} está {len(lista_repes)} veces')
-        for fichero_repe in lista_repes:
-            print(f'   {fichero_repe} : {datos[fichero_repe]}')
-
+        cuantos_repes =  len(lista_repes)
+        print(f'{repe} está {cuantos_repes} veces')
+        '''
+        if len(lista_repes) > 2:
+            for fiche in lista_repes:
+                print(f'  {fiche} : {datos[fiche]}') '''
+        for i in range(cuantos_repes):
+            first_file = lista_repes[i]
+            first_size = datos[first_file]
+            for fichero_repe in lista_repes[i+1:]:
+                fichero_size = datos[fichero_repe]
+                if fichero_size == first_size: # son iguales
+                    print(f'   borrar {fichero_repe} : {fichero_size}')
+                    borrables.append(fichero_repe)
+                    espacio_liberar += fichero_size
+            '''
+                else:
+                    print(f'distintos {fichero_repe} : {fichero_size} != {first_size}')'''
+    f_script = open(nombre_script_borrado,'wt', encoding = 'utf-8')
+    for file_borrable in borrables:
+        line = f'rm "{file_borrable}"' 
+        f_script.write(line+'\n')
+        print(line)
+    f_script.close()
+    print(f'Recuperable {espacio_liberar/(1024*1024):2.2f} Mb ')
 checkDuplicates()
