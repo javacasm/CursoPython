@@ -2,7 +2,7 @@ import os
 import json
 
 
-v = '0.6.2'
+v = '0.7'
 
 # baseDir = '/Volumes/myblock/musica/' # Para mac
 
@@ -33,7 +33,7 @@ def exploreDir(directorio):
         fullfilename = directorio +  fichero
         if os.path.isdir(fullfilename):
             listaDirectorios.append(fullfilename)
-            print(f'Hay {len(listaDirectorios)} pendientes\r')
+            # print(f'Hay {len(listaDirectorios)} pendientes\r')
         else:
             if os.path.isfile(fullfilename):
                 info = getInfo(fullfilename)
@@ -98,9 +98,8 @@ def checkDuplicates():
                     print(f'   borrar {fichero_repe} : {fichero_size}')
                     borrables.append(fichero_repe)
                     espacio_liberar += fichero_size
-            '''
                 else:
-                    print(f'distintos {fichero_repe} : {fichero_size} != {first_size}')'''
+                    print(f'distintos {fichero_repe} : {fichero_size} != {first_size}')
     f_script = open(nombre_script_borrado,'wt', encoding = 'utf-8')
     for file_borrable in borrables:
         line = f'rm "{file_borrable}"' 
@@ -108,4 +107,35 @@ def checkDuplicates():
         print(line)
     f_script.close()
     print(f'Recuperable {espacio_liberar/(1024*1024):2.2f} Mb ')
-checkDuplicates()
+
+# checkDuplicates()
+
+from collections import Counter
+
+def findIgualSizeFiles():
+    sizes = datos.values()
+    list_sizes = list(sizes)
+    list_filenames = list(datos.keys())
+    contaje = Counter(list_sizes)
+    ahorro = 0
+    f_script = open(nombre_script_borrado,'wt', encoding = 'utf-8')
+    for size,count, in contaje.items():
+        if count > 1:
+            ahorro += size * (count-1)
+            print(f' {size}: {count}')
+            inicio = 0
+            for i in range(count):
+                indice = list_sizes.index(size,inicio)
+                fichero = list_filenames[indice]
+                print(fichero)
+                inicio = indice +1
+                if '/0' in '/4_' in fichero or 'varios' in fichero or '_1.mp3' in fichero or '_2.mp3' in fichero:
+                    linea = f'rm "{fichero}"\n'
+                    f_script.write(linea)
+                    print(linea,end='')
+                    break
+    f_script.close()
+                
+    print(f'Ahorro: {ahorro/(1024*1024*1024):2.2f} Gb')
+    
+findIgualSizeFiles()
