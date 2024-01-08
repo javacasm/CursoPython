@@ -2,18 +2,13 @@
 
 ![Logo Python](./images/python-logo.png)
 
-## Versión 0.99.2
+## Versión 0.99.5 - Enero 2024
 
 
 
 ![Licencia CC by SA](./images/Licencia_CC_peque.png) 
 
-## by @javacasm
+by @javacasm - José Antonio Vacas Martínez
 
+[https://elCacharreo.com](https://elCacharreo.com)
 
-### José Antonio Vacas Martínez
-
-### https://elCacharreo.com
-
-
-## Octubre 2022
