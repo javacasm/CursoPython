@@ -155,6 +155,7 @@ pandas:
 					8.2.1.WordCounter.md \
 					8.3.0.EscrituraFicheros.md \
 					8.3.1.Juego20PreguntasGuardar.md \
+					8.4.ContextManager.md \
 					8.5.Ficheros_colab.md
 
 9:
